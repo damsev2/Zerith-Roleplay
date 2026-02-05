@@ -609,7 +609,7 @@ const ruleSearch = document.getElementById('ruleSearch');
 if (ruleSearch) {
   ruleSearch.addEventListener('input', function () {
     const value = this.value.toLowerCase(); 
-    if (value.length < 3) {
+    if (value.length < 1) {
       document.querySelectorAll('.rule, .rule-category').forEach(el => {
         el.style.display = 'block';
       });
