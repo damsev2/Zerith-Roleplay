@@ -618,7 +618,8 @@ if (ruleSearch) {
 
       while (next && !next.classList.contains('rule-category')) {
         if (next.classList.contains('rule')) {
-          const ruleText = next.innerText.toLowerCase();
+          const titleEl = next.querySelector('strong');
+const ruleText = titleEl ? titleEl.innerText.toLowerCase() : '';
 
 const words = ruleText.split(/\s+/);
 const categoryWords = categoryText.split(/\s+/);
