@@ -605,6 +605,39 @@ function openApplication(type) {
   }
 
   const ruleSearch = document.getElementById('ruleSearch');
+
+if (ruleSearch) {
+  ruleSearch.addEventListener('input', function () {
+    const value = this.value.toLowerCase();
+
+    document.querySelectorAll('.rule-category').forEach(category => {
+      let hasVisibleRule = false;
+      const categoryText = category.innerText.toLowerCase();
+
+      let next = category.nextElementSibling;
+
+      while (next && !next.classList.contains('rule-category')) {
+        if (next.classList.contains('rule')) {
+          const ruleText = next.innerText.toLowerCase();
+
+          const match =
+            ruleText.includes(value) ||
+            categoryText.includes(value);
+
+          next.style.display = match ? 'block' : 'none';
+
+          if (match) hasVisibleRule = true;
+        }
+        next = next.nextElementSibling;
+      }
+
+      category.style.display =
+        value === '' || hasVisibleRule || categoryText.includes(value)
+          ? 'block'
+          : 'none';
+    });
+  });
+}
   if (ruleSearch) {
     ruleSearch.addEventListener('input', function () {
       const value = this.value.toLowerCase();
