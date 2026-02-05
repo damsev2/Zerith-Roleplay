@@ -287,11 +287,18 @@
     .notice { margin-top: 20px; color: var(--accent); }
     /* ===== HOME HERO (KUN FORSIDE) ===== */
 section#home {
+  display: none; /* skjult som standard */
+  padding: 80px; /* juster padding til alle sektioner */
+  background: radial-gradient(circle at right, rgba(30,144,255,0.25), transparent 55%), #000;
+}
+
+section#home.active {
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 100vh;
   padding: 120px 80px;
+}
   background: radial-gradient(
       circle at right,
       rgba(30,144,255,0.25),
