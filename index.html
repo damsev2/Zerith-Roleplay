@@ -349,11 +349,17 @@ section#home.active {
     margin-top: 40px;
   }
 }
-    section#rules,
+section#rules,
 section#applications {
-  display: flex;           /* gør sektionen til flex container */
-  justify-content: center; /* centrerer vandret */
-  padding: 40px 20px;      /* lidt luft rundt om indholdet */
+  display: block;          /* normal block */
+  padding: 40px 20px;      /* lidt luft rundt om indhold */
+  text-align: center;      /* centrer alt horisontalt */
+}
+
+.section-inner {
+  max-width: 1000px;       /* begrænser hvor bredt indholdet kan være */
+  margin: 0 auto;          /* centrerer containeren */
+  text-align: left;        /* indhold som tekst og grid starter til venstre */
 }
 
 .section-inner {
