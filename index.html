@@ -214,12 +214,24 @@
 </head>
 <body>
 
-<nav>
-  <a href="#" onclick="showPage('home'); return false;">Forside</a>
-  <a href="#" onclick="showPage('rules'); return false;">Regler</a>
-  <a href="#" onclick="showPage('applications'); return false;">Ansøgninger</a>
-  <a href="#" onclick="showPage('staff'); return false;">Staff Panel</a>
-  <a href="#" onclick="showPage('donation'); return false;">Donation</a>
+<nav class="top-nav">
+  <div class="nav-left">
+    <img src="logo.png" alt="Zerith Roleplay Logo">
+    <span>Zerith Roleplay</span>
+  </div>
+
+  <div class="nav-center">
+    <a onclick="showPage('home')">Forside</a>
+    <a onclick="showPage('rules')">Regler</a>
+    <a onclick="showPage('applications')">Ansøgning</a>
+    <a onclick="showPage('donation')">Donation</a>
+  </div>
+
+  <div class="nav-right">
+    <a class="discord-btn" href="https://discord.gg/zerithrp" target="_blank">
+      Login med Discord
+    </a>
+  </div>
 </nav>
 
 <section id="home" class="active">
