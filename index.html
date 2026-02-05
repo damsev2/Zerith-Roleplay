@@ -291,6 +291,111 @@
   border-color: #4da3ff;
   box-shadow: 0 0 15px rgba(77,163,255,0.35);
 }
+/* HERO FORSIDE */
+.hero-wrap {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  background: radial-gradient(
+      circle at right,
+      rgba(30,144,255,0.18),
+      transparent 55%
+    ),
+    #000;
+}
+
+.hero-inner {
+  max-width: 1400px;
+  margin: auto;
+  padding: 60px 40px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* LEFT */
+.hero-left h1 {
+  font-size: 64px;
+  line-height: 1.05;
+  margin-bottom: 25px;
+}
+
+.hero-left h1 span {
+  color: #1e90ff;
+}
+
+.hero-left p {
+  font-size: 18px;
+  color: #b7c7dd;
+  max-width: 560px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  padding: 14px 30px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+
+.hero-btn.primary {
+  background: #1e90ff;
+  color: white;
+}
+
+.hero-btn.primary:hover {
+  box-shadow: 0 0 20px rgba(30,144,255,0.5);
+  transform: translateY(-2px);
+}
+
+.hero-btn.secondary {
+  background: transparent;
+  color: #cfe2ff;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.hero-btn.secondary:hover {
+  border-color: #1e90ff;
+  color: #1e90ff;
+}
+
+/* RIGHT */
+.hero-right {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-right img {
+  max-width: 460px;
+  width: 100%;
+  filter: drop-shadow(0 0 30px rgba(30,144,255,0.55));
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-left p {
+    margin: 0 auto 40px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+}
     .notice { margin-top: 20px; color: var(--accent); }
   </style>
 </head>
@@ -316,34 +421,35 @@
   </div>
 </nav>
 
-<section id="home" class="active">
-  <div class="hero">
-    <h1>Velkommen til Zerith Roleplay</h1>
-    <p style="font-size:18px; color: var(--muted); max-width:700px; margin: 0 auto 40px; line-height:1.6;">
-      Hos Zerith Roleplay er der plads til kreativitet, dybe karakterer og ægte konsekvenser.<br>
-      <strong>Skriv din historie. Lev den.</strong>
-    </p>
-    <div class="buttons">
-      <a class="btn" href="https://discord.gg/zerithrp" target="_blank">Join vores Discord</a>
-      <a class="btn secondary" href="#" onclick="showPage('rules'); return false;">§ Regler</a>
-    </div>
+<section id="home" class="hero-wrap active">
+  <div class="hero-inner">
 
-    <div class="grid">
-      <div class="card">
-        <h3>Et levende samfund</h3>
-        <p>Fokus på dyb karakterudvikling og langsigtede historier.</p>
+    <div class="hero-left">
+      <h1>
+        Velkommen til<br>
+        <span>ZerithRP</span>
+      </h1>
+
+      <p>
+        Hos Zerith Roleplay er der plads til kreativitet, dybe
+        karakterer og ægte konsekvenser.<br>
+        <strong>Skriv din historie. Lev den.</strong>
+      </p>
+
+      <div class="hero-buttons">
+        <a href="https://discord.gg/zerithrp" target="_blank" class="hero-btn primary">
+          Join vores Discord
+        </a>
+        <a onclick="showPage('rules')" class="hero-btn secondary">
+          Se regler
+        </a>
       </div>
-
-      <div class="card">
-        <h3>Professionelt community</h3>
-        <p>Serveren drives af et dedikeret og modent staffteam.</p>
-      </div>
     </div>
 
-    <div class="center-box card">
-      <h3>Klar til at sende din whitelist ansøgning?</h3>
-      <p>Log ind med Discord for at ansøge.</p>
+    <div class="hero-right">
+      <img src="logo.png" alt="Zerith Roleplay Logo">
     </div>
+
   </div>
 </section>
 
