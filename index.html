@@ -611,8 +611,8 @@ if (ruleSearch) {
   ruleSearch.addEventListener('input', function () {
     const value = this.value.toLowerCase();
 
-    // Mindst 3 tegn
-    if (value.length < 3) {
+    // Mindst 1 tegn
+    if (value.length < 1) {
       document.querySelectorAll('.rule, .rule-category').forEach(el => {
         el.style.display = 'block';
       });
