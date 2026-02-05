@@ -292,6 +292,61 @@
   box-shadow: 0 0 15px rgba(77,163,255,0.35);
 }
     .notice { margin-top: 20px; color: var(--accent); }
+    /* ===== HOME HERO (KUN FORSIDE) ===== */
+section#home {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 120px 80px;
+  background: radial-gradient(
+      circle at right,
+      rgba(30,144,255,0.25),
+      transparent 55%
+    ),
+    #000;
+}
+
+.hero-left {
+  max-width: 600px;
+}
+
+.hero-left h1 {
+  font-size: 52px;
+  margin-bottom: 20px;
+  color: #1e90ff;
+}
+
+.hero-left p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #cfdcff;
+  margin-bottom: 35px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.hero-right img {
+  max-width: 520px;
+  width: 100%;
+  filter: drop-shadow(0 0 40px rgba(30,144,255,0.6));
+}
+
+/* MOBIL */
+@media (max-width: 900px) {
+  section#home {
+    flex-direction: column;
+    text-align: center;
+    padding: 100px 20px;
+  }
+
+  .hero-right {
+    margin-top: 40px;
+  }
+}
   </style>
 </head>
 <body>
