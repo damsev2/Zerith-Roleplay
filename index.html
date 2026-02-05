@@ -609,7 +609,12 @@ function openApplication(type) {
 if (ruleSearch) {
   ruleSearch.addEventListener('input', function () {
     const value = this.value.toLowerCase();
-
+if (value.length < 3) {
+  document.querySelectorAll('.rule, .rule-category').forEach(el => {
+    el.style.display = 'block';
+  });
+  return;
+}
     document.querySelectorAll('.rule-category').forEach(category => {
       let hasVisibleRule = false;
       const categoryText = category.innerText.toLowerCase();
