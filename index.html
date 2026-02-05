@@ -310,8 +310,8 @@
   </div>
 
   <div class="nav-right">
-    <a class="discord-btn" href="https://discord.gg/zerithrp" target="_blank">
-      Login med Discord
+    <a class="discord-btn" onclick="discordLogin()">
+  Login med Discord
     </a>
   </div>
 </nav>
@@ -654,11 +654,7 @@ function openApplication(type) {
     form.scrollIntoView({ behavior: 'smooth' });
   }, 100);
 }
-    showPage('applications');
-    document.getElementById('applicationForm').style.display = 'block';
-    document.getElementById('appTitle').innerText = type + ' ansøgning';
-    document.getElementById('appNotice').innerText = '';
-  }
+
 
   function submitApplication() {
     document.getElementById('appNotice').innerText = 'Du har nu ansøgt.';
@@ -742,6 +738,58 @@ const match =
     });
   });
 }
+  <script>
+let isLoggedIn = false;
+
+function showPage(id) {
+  if (!isLoggedIn && id !== 'home') {
+    alert('Du skal logge ind med Discord først.');
+    return;
+  }
+
+  document.querySelectorAll('section').forEach(section =>
+    section.classList.remove('active')
+  );
+  document.getElementById(id).classList.add('active');
+}
+
+function toggleRule(el) {
+  const content = el.querySelector('.rule-content');
+  content.style.display =
+    content.style.display === 'block' ? 'none' : 'block';
+}
+
+function openApplication(type) {
+  showPage('applications');
+
+  const form = document.getElementById('applicationForm');
+  form.style.display = 'block';
+
+  document.getElementById('appTitle').innerText =
+    type + ' ansøgning';
+  document.getElementById('appNotice').innerText = '';
+
+  setTimeout(() => {
+    form.scrollIntoView({ behavior: 'smooth' });
+  }, 100);
+}
+
+function submitApplication() {
+  document.getElementById('appNotice').innerText =
+    'Du har nu ansøgt.';
+}
+
+function discordLogin() {
+  isLoggedIn = true;
+
+  alert('Du er nu logget ind med Discord');
+
+  const btn = document.querySelector('.discord-btn');
+  btn.innerText = 'Logget ind';
+  btn.style.pointerEvents = 'none';
+  btn.style.opacity = '0.7';
+}
 </script>
+  
 </body>
 </html>
