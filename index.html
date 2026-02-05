@@ -608,7 +608,8 @@ function openApplication(type) {
 
 if (ruleSearch) {
   ruleSearch.addEventListener('input', function () {
-    const value = this.value.toLowerCase(); if (value.length < 3) {
+    const value = this.value.toLowerCase(); 
+if (value.length < 3) {
   document.querySelectorAll('.rule, .rule-category').forEach(el => {
     el.style.display = 'block';
   });
