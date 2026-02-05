@@ -571,15 +571,51 @@ function openApplication(type) {
   }
 </script>
 <script>
-  // REGEL-SØG
-  document.getElementById('ruleSearch')?.addEventListener('input', function () {
-    const value = this.value.toLowerCase();
-    document.querySelectorAll('.rule').forEach(rule => {
-      rule.style.display = rule.innerText.toLowerCase().includes(value)
-        ? 'block'
-        : 'none';
+  function showPage(id) {
+    document.querySelectorAll('section').forEach(section =>
+      section.classList.remove('active')
+    );
+    document.getElementById(id).classList.add('active');
+  }
+
+  function toggleRule(el) {
+    const content = el.querySelector('.rule-content');
+    content.style.display =
+      content.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function openApplication(type) {
+    showPage('applications');
+
+    const form = document.getElementById('applicationForm');
+    form.style.display = 'block';
+
+    document.getElementById('appTitle').innerText =
+      type + ' ansøgning';
+    document.getElementById('appNotice').innerText = '';
+
+    setTimeout(() => {
+      form.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  }
+
+  function submitApplication() {
+    document.getElementById('appNotice').innerText =
+      'Du har nu ansøgt.';
+  }
+
+  const ruleSearch = document.getElementById('ruleSearch');
+  if (ruleSearch) {
+    ruleSearch.addEventListener('input', function () {
+      const value = this.value.toLowerCase();
+      document.querySelectorAll('.rule').forEach(rule => {
+        rule.style.display =
+          rule.innerText.toLowerCase().includes(value)
+            ? 'block'
+            : 'none';
+      });
     });
-  });
+  }
 </script>
 </body>
 </html>
