@@ -45,11 +45,16 @@
     nav a:hover { color: var(--accent); }
 
     section {
-      display: none;
-      padding: 80px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
+section {
+  display: none;
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+section:not(#home) {
+  background: transparent;
+}
 
     section.active { display: block; }
 
@@ -292,7 +297,7 @@
   box-shadow: 0 0 15px rgba(77,163,255,0.35);
 }
 /* HERO FORSIDE */
-.hero-wrap {
+section#home.hero-wrap {
   min-height: 100vh;
   padding-top: 80px;
   display: flex;
