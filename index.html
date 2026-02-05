@@ -638,17 +638,6 @@ if (ruleSearch) {
     });
   });
 }
-  if (ruleSearch) {
-    ruleSearch.addEventListener('input', function () {
-      const value = this.value.toLowerCase();
-      document.querySelectorAll('.rule').forEach(rule => {
-        rule.style.display =
-          rule.innerText.toLowerCase().includes(value)
-            ? 'block'
-            : 'none';
-      });
-    });
-  }
 </script>
 </body>
 </html>
