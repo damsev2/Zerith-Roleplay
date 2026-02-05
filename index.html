@@ -604,50 +604,17 @@ function openApplication(type) {
       'Du har nu ansøgt.';
   }
 
-<script>
 const ruleSearch = document.getElementById('ruleSearch');
 
 if (ruleSearch) {
   ruleSearch.addEventListener('input', function () {
-    const value = this.value.toLowerCase();
-
-    // Mindst 1 tegn
-    if (value.length < 1) {
+    const value = this.value.toLowerCase(); 
+    if (value.length < 3) {
       document.querySelectorAll('.rule, .rule-category').forEach(el => {
         el.style.display = 'block';
       });
       return;
     }
-
-    document.querySelectorAll('.rule-category').forEach(category => {
-      let hasVisibleRule = false;
-      const categoryText = category.innerText.toLowerCase();
-
-      let next = category.nextElementSibling;
-
-      while (next && !next.classList.contains('rule-category')) {
-        if (next.classList.contains('rule')) {
-          const titleEl = next.querySelector('strong');
-          const ruleText = titleEl ? titleEl.innerText.toLowerCase() : '';
-
-          const words = ruleText.split(/\s+/);
-          const categoryWords = categoryText.split(/\s+/);
-
-          const match =
-            words.some(w => w.startsWith(value)) ||
-            categoryWords.some(w => w.startsWith(value));
-
-          next.style.display = match ? 'block' : 'none';
-          if (match) hasVisibleRule = true;
-        }
-        next = next.nextElementSibling;
-      }
-
-      category.style.display = hasVisibleRule ? 'block' : 'none';
-    });
-  });
-}
-</script>
     
     document.querySelectorAll('.rule-category').forEach(category => {
       let hasVisibleRule = false;
