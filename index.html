@@ -620,9 +620,12 @@ if (ruleSearch) {
         if (next.classList.contains('rule')) {
           const ruleText = next.innerText.toLowerCase();
 
-          const match =
-            ruleText.includes(value) ||
-            categoryText.includes(value);
+const words = ruleText.split(/\s+/);
+const categoryWords = categoryText.split(/\s+/);
+
+const match =
+  words.some(word => word.startsWith(value)) ||
+  categoryWords.some(word => word.startsWith(value));
 
           next.style.display = match ? 'block' : 'none';
 
