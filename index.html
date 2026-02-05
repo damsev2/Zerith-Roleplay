@@ -293,7 +293,8 @@
 }
 /* HERO FORSIDE */
 .hero-wrap {
-  min-height: calc(100vh - 80px);
+  min-height: 100vh;
+  padding-top: 80px;
   display: flex;
   align-items: center;
   background: radial-gradient(
@@ -408,7 +409,7 @@
   </div>
 
   <div class="nav-center">
-    <a onclick="showPage('home')">Forside</a>
+    <a onclick="showPage('home'); window.scrollTo(0,0)">Forside</a>
     <a onclick="showPage('rules')">Regler</a>
     <a onclick="showPage('applications')">Ansøgning</a>
     <a onclick="showPage('donation')">Donation</a>
@@ -739,15 +740,12 @@
 let isLoggedIn = false;
 
 function showPage(id) {
-  if (!isLoggedIn && id !== 'home') {
-    alert('Du skal logge ind med Discord først.');
-    return;
-  }
-
   document.querySelectorAll('section').forEach(section =>
     section.classList.remove('active')
   );
-  document.getElementById(id).classList.add('active');
+
+  const page = document.getElementById(id);
+  if (page) page.classList.add('active');
 }
 
 function toggleRule(el) {
