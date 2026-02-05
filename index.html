@@ -351,10 +351,10 @@ section#home {
   </div>
 
 <div class="nav-center">
-  <a href="#" onclick="event.preventDefault(); showPage('home')">Forside</a>
-  <a href="#" onclick="event.preventDefault(); showPage('rules')">Regler</a>
-  <a href="#" onclick="event.preventDefault(); showPage('applications')">Ansøgning</a>
-  <a href="#" onclick="event.preventDefault(); showPage('donation')">Donation</a>
+<a href="#" onclick="showPage('home'); return false;">Forside</a>
+<a href="#" onclick="showPage('rules'); return false;">Regler</a>
+<a href="#" onclick="showPage('applications'); return false;">Ansøgning</a>
+<a href="#" onclick="showPage('donation'); return false;">Donation</a>
 </div>
 
   <div class="nav-right">
@@ -692,17 +692,17 @@ function openApplication(type) {
   showPage('applications');
 
   const form = document.getElementById('applicationForm');
-  form.style.display = 'block';
+  form.style.display = 'block'; // vis ansøgningsformularen
 
-  document.getElementById('appTitle').innerText =
-    type + ' ansøgning';
+  // sæt titel og nulstil notice
+  document.getElementById('appTitle').innerText = type + ' ansøgning';
   document.getElementById('appNotice').innerText = '';
 
+  // scroll til formularen
   setTimeout(() => {
     form.scrollIntoView({ behavior: 'smooth' });
   }, 100);
 }
-
 function submitApplication() {
   document.getElementById('appNotice').innerText =
     'Du har nu ansøgt.';
