@@ -22,20 +22,6 @@
       color: var(--text);
       color: var(--text);
     }
-    .hero .card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.hero .card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-}
-
-/* Stats hover effekt */
-.center-box div:hover h2 {
-  color: #00ffd5;
-  transform: scale(1.2);
-  transition: all 0.3s ease;
-}
 
     nav {
       position: sticky;
@@ -330,54 +316,36 @@
   </div>
 </nav>
 
-<div class="hero" style="background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('hero-bg.jpg') center/cover no-repeat; color: white;">
-  <img src="logo.png" alt="Zerith Roleplay Logo" style="height:120px; margin-bottom:20px;">
-  <h1 style="font-size:60px; text-shadow: 0 0 15px rgba(30,144,255,0.8);">Velkommen til Zerith Roleplay</h1>
-  <p style="font-size:20px; max-width:800px; margin:auto 0 40px; line-height:1.6; color:#d0e7ff;">Kreativitet, dybe karakterer og ægte konsekvenser. <strong>Skriv din historie. Lev den.</strong></p>
-  <div class="buttons">
-    <a class="btn" href="https://discord.gg/zerithrp" target="_blank" style="font-size:18px; padding:18px 40px;">Join Discord</a>
-    <a class="btn secondary" href="#" onclick="showPage('rules'); return false;" style="font-size:18px; padding:18px 40px;">Se Regler §</a>
-  </div>
+<section id="home" class="active">
+  <div class="hero">
+    <h1>Velkommen til Zerith Roleplay</h1>
+    <p style="font-size:18px; color: var(--muted); max-width:700px; margin: 0 auto 40px; line-height:1.6;">
+      Hos Zerith Roleplay er der plads til kreativitet, dybe karakterer og ægte konsekvenser.<br>
+      <strong>Skriv din historie. Lev den.</strong>
+    </p>
+    <div class="buttons">
+      <a class="btn" href="https://discord.gg/zerithrp" target="_blank">Join vores Discord</a>
+      <a class="btn secondary" href="#" onclick="showPage('rules'); return false;">§ Regler</a>
+    </div>
 
-  <!-- Feature Cards med billeder -->
-  <div class="grid" style="margin-top:60px;">
-    <div class="card" style="background:url('community.jpg') center/cover; color:white; text-shadow: 0 0 8px black;">
-      <h3>Et levende samfund</h3>
-      <p>Fokus på dyb karakterudvikling og langsigtede historier.</p>
-    </div>
-    <div class="card" style="background:url('staff.jpg') center/cover; color:white; text-shadow: 0 0 8px black;">
-      <h3>Professionelt community</h3>
-      <p>Serveren drives af et dedikeret og modent staffteam.</p>
-    </div>
-    <div class="card" style="background:url('events.jpg') center/cover; color:white; text-shadow: 0 0 8px black;">
-      <h3>Events & RP Storylines</h3>
-      <p>Spændende events, der gør hver dag på serveren unik.</p>
-    </div>
-  </div>
+    <div class="grid">
+      <div class="card">
+        <h3>Et levende samfund</h3>
+        <p>Fokus på dyb karakterudvikling og langsigtede historier.</p>
+      </div>
 
-  <!-- Stats / Highlights -->
-  <div class="center-box" style="display:flex; justify-content:center; gap:40px; margin-top:80px;">
-    <div style="text-align:center;">
-      <h2 style="font-size:36px; color:#1e90ff;">120+</h2>
-      <p>Aktive spillere</p>
+      <div class="card">
+        <h3>Professionelt community</h3>
+        <p>Serveren drives af et dedikeret og modent staffteam.</p>
+      </div>
     </div>
-    <div style="text-align:center;">
-      <h2 style="font-size:36px; color:#1e90ff;">500+</h2>
-      <p>Timer RP</p>
-    </div>
-    <div style="text-align:center;">
-      <h2 style="font-size:36px; color:#1e90ff;">50+</h2>
-      <p>Events om året</p>
-    </div>
-  </div>
 
-  <!-- Call-to-action -->
-  <div class="center-box card" style="margin-top:80px; padding:30px; background: linear-gradient(90deg, #1e90ff, #00ffd5); color:black;">
-    <h3>Klar til at sende din whitelist ansøgning?</h3>
-    <p>Log ind med Discord for at ansøge og blive en del af vores community.</p>
-    <a class="btn" href="#" onclick="openApplication('Whitelist'); return false;">Ansøg nu →</a>
+    <div class="center-box card">
+      <h3>Klar til at sende din whitelist ansøgning?</h3>
+      <p>Log ind med Discord for at ansøge.</p>
+    </div>
   </div>
-</div>
+</section>
 
 <section id="rules">
   <h1>Regler</h1>
