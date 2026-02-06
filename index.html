@@ -828,60 +828,36 @@ section#home.active {
     transform: translateX(-50%) translateY(6px);
   }
 }
-  .card.closed {
-  background: linear-gradient(180deg, rgba(128,128,128,0.05), rgba(128,128,128,0.1)) !important;
-  border-color: rgba(128,128,128,0.25) !important;
-  box-shadow: 0 0 0 1 rgba(128,128,128,0.08), 0 12px 30px rgba(0,0,0,0.6) !important;
+  
+.card.closed {
+  opacity: 0.7; 
+  pointer-events: none; 
+  cursor: default;
 }
 
-.card.closed .badge {
-  background: rgba(128,128,128,0.2) !important;
-  color: #808080 !important;
-  border: 1px solid rgba(128,128,128,0.35) !important;
+.card.closed .badge::after {
+  content: "Lukket";
+  display: block;
+  font-size: 12px;
+  color: #fff;
+  margin-top: 2px;
+  text-align: center;
 }
 
-.card.closed .btn {
-  background: linear-gradient(180deg, #808080, #808080) !important;
-  box-shadow: 0 6px 18px rgba(128,128,128,0.35) !important;
-  color: white !important;
-}
-
-.card.closed h3 {
-  color: #808080 !important;
-}
-#applications .card.closed {
-  background: linear-gradient(180deg, rgba(120,120,120,0.15), rgba(100,100,100,0.05)) !important;
-  border: 1px solid rgba(150,150,150,0.25) !important;
-  box-shadow: 0 0 0 1 rgba(150,150,150,0.08), 0 12px 30px rgba(0,0,0,0.4) !important;
-  cursor: default; /* ikke klikbar */
-  pointer-events: none; /* forhindrer klik */
-  opacity: 0.7; /* gråtonet */
-}
-
-/* Tekst på kort */
-#applications .card.closed h3,
-#applications .card.closed p,
-#applications .card.closed .badge {
-  color: #999 !important;
-}
-
-/* Ansøg nu knap */
 #applications .card.closed .btn {
   background: #aaa !important;
   color: #666 !important;
   box-shadow: none !important;
-  pointer-events: none; /* ikke klikbar */
+  pointer-events: none;
 }
 
-/* Sørger for at lukket kort ryger ned */
 #applications .card-container {
   display: flex;
   flex-direction: column;
 }
-
-/* Alle lukkede kort rykkes til bunden */
+  
 #applications .card.closed {
-  order: 999; /* stort tal sender det til bunden */
+  order: 999; 
 }
   </style>
 </head>
