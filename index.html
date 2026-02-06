@@ -886,6 +886,15 @@ section#home.active {
     transform: translateX(-50%) translateY(6px);
   }
 }
+  #home-info {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.9),
+    rgba(3,26,51,0.6)
+  );
+}
   </style>
 </head>
 <body>
@@ -941,6 +950,100 @@ section#home.active {
   <div class="scroll-down" onclick="scrollHomeDown()">
   <img src="arrow-down.png" alt="Scroll ned">
 </div>
+</section>
+  Perfekt – fed forside, I er meget langt allerede 🔥
+Jeg gør det her 100% konkret og kirurgisk, præcis som du bad om.
+
+Målet:
+
+En ny sektion UNDER hero/forsiden
+
+Når man klikker på pilen, scroller den ned til den nye sektion
+
+Sektionen matcher jeres cards / box-design
+
+Indhold: info om Zerith RP + “Klar til whitelist?”-boks med knap
+
+🧩 OVERBLIK – hvad vi gør
+
+Vi tilføjer en ny sektion i HTML (lige efter </section> for #home)
+
+Vi retter scrollHomeDown(), så den scroller direkte til den nye sektion
+
+Ingen eksisterende hero-kode ødelægges
+
+1️⃣ INGEN SLETNING (kun en lille ændring senere)
+
+👉 Du skal ikke slette noget endnu
+
+2️⃣ INDSÆT NY SEKTION (HTML)
+📍 PRÆCIS HVOR
+
+Find denne linje i din HTML:
+
+</section>
+
+
+🔍 Det er den der lukker <section id="home">
+
+⬇️ INDSÆT DETTE LIGE EFTER DEN:
+
+<section id="home-info">
+  <div class="content-container">
+
+    <h2 style="text-align:center; font-size:42px; margin-bottom:20px;">
+      Hvad er Zerith Roleplay?
+    </h2>
+
+    <p style="text-align:center; max-width:800px; margin:0 auto 60px auto; color:#cfdcff; font-size:18px;">
+      Zerith Roleplay er en seriøs ESX-baseret FiveM server for spillere 16+, 
+      hvor kvalitet, fordybelse og realistisk roleplay er i fokus.
+      Her betyder dine valg noget – og din historie former byen.
+    </p>
+
+    <div class="grid">
+
+      <div class="card">
+        <span class="badge">ESX</span>
+        <h3>Avanceret ESX Framework</h3>
+        <p>
+          Skræddersyet ESX med fokus på stabilitet, realistiske jobs
+          og dyb progression for alle typer karakterer.
+        </p>
+      </div>
+
+      <div class="card">
+        <span class="badge">16+</span>
+        <h3>Modent Community</h3>
+        <p>
+          Serveren er 16+ og bygget op omkring respekt, seriøs RP
+          og et aktivt, voksent fællesskab.
+        </p>
+      </div>
+
+      <div class="card">
+        <span class="badge">RP</span>
+        <h3>Konsekvensbaseret Roleplay</h3>
+        <p>
+          Dine handlinger har konsekvenser. Politiet husker dig,
+          rygter spreder sig – og byen reagerer.
+        </p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Whitelist</span>
+        <h3>Klar til Whitelist?</h3>
+        <p>
+          Er du klar til at tage RP seriøst og blive en del af Zerith?
+          Ansøg om whitelist og start din historie i dag.
+        </p>
+        <span class="btn" onclick="showPage('applications')">
+          Gå til whitelist →
+        </span>
+      </div>
+
+    </div>
+  </div>
 </section>
 
 <section id="rules">
@@ -1285,12 +1388,13 @@ document.querySelectorAll('.nav-left img, .nav-left span').forEach(el => {
     showPage('home');
   });
 });
-    function scrollHomeDown() {
-  const home = document.getElementById('home');
-  window.scrollTo({
-    top: home.offsetTop + 300,
-    behavior: 'smooth'
-  });
+function scrollHomeDown() {
+  const section = document.getElementById('home-info');
+  if (section) {
+    section.scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
 }
 </script>
 </body>
