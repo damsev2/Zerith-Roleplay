@@ -946,12 +946,47 @@ section#home.active {
     </div>
     
   </div>
-  
+<div id="home-info">
+  <div class="content-container">
+
+    <h2 style="text-align:center; font-size:42px; margin-bottom:20px;">
+      Hvad er Zerith Roleplay?
+    </h2>
+
+    <p style="text-align:center; max-width:800px; margin:0 auto 60px auto; color:#cfdcff; font-size:18px;">
+      Zerith Roleplay er en seriøs ESX-baseret FiveM server for spillere 16+,
+      hvor kvalitet, fordybelse og realistisk roleplay er i fokus.
+    </p>
+
+    <div class="grid">
+
+      <div class="card">
+        <span class="badge">ESX</span>
+        <h3>Avanceret ESX</h3>
+        <p>Skræddersyet framework med fokus på stabilitet og dyb RP.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">16+</span>
+        <h3>Modent Community</h3>
+        <p>Seriøst RP, respekt og et aktivt fællesskab.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Whitelist</span>
+        <h3>Klar til Whitelist?</h3>
+        <p>Tag første skridt ind i Zerith Roleplay.</p>
+        <span class="btn" onclick="showPage('applications')">
+          Ansøg nu →
+        </span>
+      </div>
+
+    </div>
+  </div>
+</div>
   <div class="scroll-down" onclick="scrollHomeDown()">
   <img src="arrow-down.png" alt="Scroll ned">
 </div>
-</section>
-<section id="home-info">
   <div class="content-container">
 
     <h2 style="text-align:center; font-size:42px; margin-bottom:20px;">
@@ -1352,7 +1387,7 @@ document.querySelectorAll('.nav-left img, .nav-left span').forEach(el => {
   });
 });
 function scrollHomeDown() {
-  const section = document.getElementById('home-info');
+ const section = document.querySelector('#home-info');
   if (section) {
     section.scrollIntoView({
       behavior: 'smooth'
