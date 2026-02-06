@@ -608,6 +608,49 @@ footer {
   text-align: center;
   color: var(--muted);
 }
+  /* === APPLICATION PANEL (SLAG OUTLINE) === */
+.application-panel {
+  max-width: 1300px;
+  margin: 60px auto;
+  padding: 30px;
+
+  position: relative;
+  border-radius: 22px;
+
+  /* Ydre outline */
+  border: 1px solid rgba(30, 144, 255, 0.35);
+
+  /* Glow + dybde */
+  box-shadow:
+    0 0 0 1px rgba(30,144,255,0.25),
+    0 0 35px rgba(30,144,255,0.25),
+    0 25px 60px rgba(0,0,0,0.8);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(12, 26, 48, 0.85),
+      rgba(6, 14, 28, 0.95)
+    );
+}
+
+/* Indre stroke (slag-effekt) */
+.application-panel::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  pointer-events: none;
+}
+
+/* Mobil */
+@media (max-width: 900px) {
+  .application-panel {
+    margin: 30px 14px;
+    padding: 20px;
+  }
+}
   </style>
 </head>
 <body>
@@ -785,6 +828,7 @@ footer {
 </section>
 
 <section id="applications">
+  <div class="application-panel">
   <div class="content-container">
   <h1>Ansøgninger</h1>
   <p>Her kan du søge de forskellige stillinger på serveren.</p>
@@ -869,6 +913,8 @@ footer {
     <button onclick="submitApplication()">Send ansøgning</button>
     <div class="notice" id="appNotice"></div>
   </div>
+    
+</div>
 </section>
 
 <section id="staff">
