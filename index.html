@@ -799,6 +799,24 @@ section#home.active {
 </footer>
   <script>
 let isLoggedIn = false;
+    // 🟢 Gem og hent sidens aktuelle sektion
+// Når siden loader, tjek om vi har en gemt sektion
+const savedSection = localStorage.getItem('activeSection');
+if (savedSection) {
+  showPage(savedSection);
+}
+
+// Når brugeren skifter sektion, gem det i localStorage
+function showPage(id) {
+  document.querySelectorAll('section').forEach(section =>
+    section.classList.remove('active')
+  );
+  const target = document.getElementById(id);
+  if (target) target.classList.add('active');
+
+  // Gem den aktuelle sektion
+  localStorage.setItem('activeSection', id);
+}
 
 // Vis kun én sektion ad gangen
 function showPage(id) {
