@@ -411,11 +411,22 @@ section#home.active {
 }
 
 .hero-right img {
-  width: 750px;           
-  max-width: 90%;          
-  height: auto;              
+.hero-right {
+  width: 100%;
+  height: 100%;
 
-  transform: translateX(60px); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-right img {
+  width: 100%;
+  max-width: 600px;     /* styrer størrelsen */
+  max-height: 600px;    /* sørger for den holder sig i boksen */
+
+  object-fit: contain;  /* logo bliver aldrig strukket */
+}
 
   filter:
     drop-shadow(0 0 50px rgba(30,144,255,0.45))
