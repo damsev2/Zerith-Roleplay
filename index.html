@@ -814,15 +814,21 @@ section#home.active {
   justify-content: center;
   align-items: center;
 }
-
+  
 .hero-right img {
-  width: 620px;
+  width: 800px;       /* Gør logoet bredere */
   max-width: 100%;
+  height: auto;
 
-  transform: translateX(40px); /* skub lidt mod højre */
+  object-fit: contain;
+
+  /* Flytning hvis ønsket */
+  transform: translateX(40px);
+
+  /* Drop shadow */
   filter:
-    drop-shadow(0 0 40px rgba(30,144,255,0.4))
-    drop-shadow(0 0 100px rgba(30,144,255,0.6));
+    drop-shadow(0 0 50px rgba(30,144,255,0.45))
+    drop-shadow(0 0 130px rgba(30,144,255,0.65));
 }
 
 /* MOBIL */
