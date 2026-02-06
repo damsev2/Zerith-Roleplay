@@ -396,28 +396,6 @@ section#home.active {
   border-radius: 8px;
 }
 
-/* RIGHT SIDE LOGO */
-.hero-right {
-  flex-shrink: 0;
-}
-
-.hero-right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 100%;
-  height: 100%;
-}
-
-.hero-right {
-  width: 100%;
-  height: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .hero-right img {
   width: 100%;
@@ -735,17 +713,6 @@ section#home.active {
   font-size: 18px;
   border-radius: 10px;
 }
-
-/* LOGO / BILLEDE HØJRE */
-.hero-right img {
-  width: 560px;
-  max-width: 100%;
-  filter:
-    drop-shadow(0 0 30px rgba(30,144,255,0.35))
-    drop-shadow(0 0 80px rgba(30,144,255,0.55));
-}
-
-/* MOBIL */
 @media (max-width: 900px) {
   .home-inner {
     flex-direction: column;
@@ -806,22 +773,26 @@ section#home.active {
   padding: 20px 40px;
   font-size: 18px;
 }
+.hero-right img {
+  width: 700px;        
+  max-width: 100%;
+  height: auto;
 
+  position: relative;
+  left: 60px;        
+  top: 0px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 0 40px rgba(30,144,255,0.4))
+    drop-shadow(0 0 100px rgba(30,144,255,0.6));
+}
 /* HØJRE SIDE – LOGO */
 .hero-right {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.hero-right img {
-  width: 620px;
-  max-width: 100%;
-
-  transform: translateX(40px); /* skub lidt mod højre */
-  filter:
-    drop-shadow(0 0 40px rgba(30,144,255,0.4))
-    drop-shadow(0 0 100px rgba(30,144,255,0.6));
 }
 
 /* MOBIL */
