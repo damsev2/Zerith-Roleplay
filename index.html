@@ -1668,6 +1668,35 @@ document.querySelectorAll("#applications .card").forEach(card => {
       card.classList.add("closed");
     }
   });
+  const appList = document.getElementById("application-list");
+  const cards = Array.from(appList.getElementsByClassName("card"));
+
+  cards.forEach(card => {
+    const status = card.dataset.status;
+    if(status === "Lukket") {
+      // gør kort gråt
+      card.style.background = "linear-gradient(180deg, #55555555, #333333aa)";
+      card.style.borderColor = "#666";
+      card.style.boxShadow = "0 0 0 1px #444, 0 12px 30px rgba(0,0,0,0.6)";
+      card.querySelector(".badge").textContent = "Lukket";
+      card.querySelector(".badge").style.background = "#888";
+      card.querySelector(".badge").style.color = "#ddd";
+      // deaktiver knap
+      const btn = card.querySelector(".btn");
+      btn.style.pointerEvents = "none";
+      btn.style.opacity = "0.5";
+    }
+  });
+
+  // Sorter kort: Lukket nederst
+  cards.sort((a, b) => {
+    if(a.dataset.status === "Lukket" && b.dataset.status !== "Lukket") return 1;
+    if(a.dataset.status !== "Lukket" && b.dataset.status === "Lukket") return -1;
+    return 0;
+  });
+
+  // Fjern alle kort fra DOM og tilføj igen i ny rækkefølge
+  cards.forEach(card => appList.appendChild(card));
 </script>
 </body>
 </html>
