@@ -355,6 +355,45 @@ section#home.active {
   margin: 0 auto;
   padding: 40px 20px;
 }
+    /* === FORCE BLUE ACCENT (MATCH LOGO) === */
+#rules,
+#applications {
+  --accent: #1e90ff;
+}
+
+/* Tekst / highlights */
+#rules h2,
+#rules h3,
+#rules strong,
+#applications h2,
+#applications h3,
+#applications strong {
+  color: var(--accent) !important;
+}
+
+/* Borders / linjer / cards */
+#rules * ,
+#applications * {
+  border-color: rgba(30, 144, 255, 0.4) !important;
+}
+
+/* Badges, labels, highlights */
+#rules .badge,
+#applications .badge,
+#rules .highlight,
+#applications .highlight {
+  background: rgba(30, 144, 255, 0.15) !important;
+  color: var(--accent) !important;
+}
+
+/* Buttons / links */
+#rules a,
+#applications a,
+#rules button,
+#applications button {
+  color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
   </style>
 </head>
 <body>
