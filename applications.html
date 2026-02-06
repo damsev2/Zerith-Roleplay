@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ansøgning - ZerithRP</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #0b1c2d; color: white; padding: 40px; }
+    h1 { color: #1e90ff; }
+    textarea { width: 100%; min-height: 200px; border-radius: 8px; padding: 12px; background: #122b44; border: 1px solid #1e90ff; color: white; }
+    button { margin-top: 15px; padding: 12px 25px; border-radius: 6px; background: #1e90ff; color: white; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Ansøg nu</h1>
+  <p>Velkommen! Udfyld venligst din ansøgning nedenfor:</p>
+
+  <form action="#" method="POST">
+    <label for="name">Dit navn / in-game navn:</label>
+    <input type="text" id="name" name="name" required style="width:100%; margin-bottom:12px; padding:10px; border-radius:6px; border:1px solid #1e90ff; background:#122b44; color:white;">
+
+    <label for="reason">Hvorfor vil du spille hos os?</label>
+    <textarea id="reason" name="reason" required></textarea>
+
+    <button type="submit">Send ansøgning</button>
+  </form>
+
+  <p style="margin-top:30px;"><a href="/logout" style="color:#1e90ff;">Log ud</a></p>
+</body>
+</html>
