@@ -75,16 +75,48 @@ footer {
       flex-wrap: wrap;
     }
 
-    .btn {
-      background: var(--accent);
-      color: white;
-      padding: 15px 30px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+.hero-buttons .btn {
+  padding: 18px 55px;
+  font-size: 20px;
+  font-weight: 600;
 
-    .btn.secondary { background: #2c4f75; }
+  border-radius: 14px;
+
+  background: rgba(20, 60, 120, 0.25);
+  border: 2px solid rgba(30, 144, 255, 0.75);
+
+  color: white;
+  text-decoration: none;
+
+  box-shadow: 0 0 20px rgba(30, 144, 255, 0.35);
+
+  transition: all 0.25s ease;
+}
+
+/* Hover glow */
+.hero-buttons .btn:hover {
+  background: rgba(30, 144, 255, 0.12);
+
+  box-shadow:
+    0 0 30px rgba(30, 144, 255, 0.75),
+    0 0 70px rgba(30, 144, 255, 0.35);
+
+  transform: translateY(-2px);
+}
+
+/* Secondary button (Se regler) */
+.hero-buttons .btn.secondary {
+  border: 2px solid rgba(120, 180, 255, 0.35);
+  background: rgba(10, 20, 40, 0.35);
+
+  color: rgba(200, 230, 255, 0.8);
+}
+
+/* Secondary hover */
+.hero-buttons .btn.secondary:hover {
+  border-color: rgba(30, 144, 255, 0.7);
+  color: white;
+}
 
     .grid {
       display: grid;
