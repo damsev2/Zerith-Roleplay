@@ -799,9 +799,7 @@ section#home.active {
 </footer>
   <script>
 let isLoggedIn = false;
-    // 🟢 Gem og hent sidens aktuelle sektion
-// Når siden loader, tjek om vi har en gemt sektion
-// ✅ Vis og husk sektionen
+    // ✅ Vis og husk sektionen
 function showPage(id) {
   document.querySelectorAll('section').forEach(section =>
     section.classList.remove('active')
@@ -809,7 +807,7 @@ function showPage(id) {
   const target = document.getElementById(id);
   if (target) target.classList.add('active');
 
-  // Gem den aktuelle sektion
+  // Gem den aktuelle sektion i localStorage
   localStorage.setItem('activeSection', id);
 }
 
@@ -822,28 +820,7 @@ window.addEventListener('DOMContentLoaded', () => {
     showPage('home'); // fallback til startside
   }
 });
-
-// Når brugeren skifter sektion, gem det i localStorage
-function showPage(id) {
-  document.querySelectorAll('section').forEach(section =>
-    section.classList.remove('active')
-  );
-  const target = document.getElementById(id);
-  if (target) target.classList.add('active');
-
-  // Gem den aktuelle sektion
-  localStorage.setItem('activeSection', id);
-}
-
-// Vis kun én sektion ad gangen
-function showPage(id) {
-  document.querySelectorAll('section').forEach(section =>
-    section.classList.remove('active')
-  );
-  const target = document.getElementById(id);
-  if (target) target.classList.add('active');
-}
-
+    // 🟢 Gem og hent sidens aktuelle sektion
 // Regel toggle
 function toggleRule(el) {
   const content = el.querySelector('.rule-content');
