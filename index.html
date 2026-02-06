@@ -866,10 +866,15 @@ section#home.active {
   background: transparent;
 }
 
-.scroll-down img {
-  width: 90px;
-  filter: drop-shadow(0 0 12px rgba(30,144,255,0.6))
-          drop-shadow(0 0 30px rgba(30,144,255,0.4));
+.scroll-down {
+  animation: bounceFade 2.2s infinite;
+}
+
+@keyframes bounceFade {
+  0%   { transform: translateX(-50%) translateY(0); opacity: 0.3; }
+  50%  { transform: translateX(-50%) translateY(18px); opacity: 1; }
+  100% { transform: translateX(-50%) translateY(0); opacity: 0.3; }
+}
 
 .scroll-down:hover {
   opacity: 1;
