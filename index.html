@@ -484,12 +484,15 @@ section#home.active {
       Skriv din historie. Lev den.
     </p>
 
-<div class="hero-buttons">
-  <a class="btn" href="https://discord.gg/zerithrp" target="_blank">
-    Join vores Discord
-  </a>
-  <a class="btn secondary" href="#" data-target="rules">Se regler</a>
-</div>
+    <div class="hero-buttons">
+      <a class="btn" href="https://discord.gg/zerithrp" target="_blank">
+        Join vores Discord
+      </a>
+      <a class="btn secondary" href="#" data-target="rules">Se regler</a>
+        Se regler
+      </a>
+    </div>
+  </div>
 
   <div class="hero-right">
     <img src="logo.png" alt="Zerith Roleplay Logo">
@@ -780,6 +783,8 @@ section#home.active {
   <p>© 2026 Zerith Roleplay – Alle rettigheder forbeholdes</p>
 </footer>
   <script>
+let isLoggedIn = false;
+
 // Vis kun én sektion ad gangen
 function showPage(id) {
   document.querySelectorAll('section').forEach(section =>
@@ -787,16 +792,7 @@ function showPage(id) {
   );
   const target = document.getElementById(id);
   if (target) target.classList.add('active');
-
-  // Gem den nuværende side i localStorage
-  localStorage.setItem('currentPage', id);
 }
-
-// Når siden loader, vis den gemte side
-window.addEventListener('DOMContentLoaded', () => {
-  const savedPage = localStorage.getItem('currentPage') || 'home';
-  showPage(savedPage);
-});
 
 // Regel toggle
 function toggleRule(el) {
@@ -826,11 +822,12 @@ function submitApplication() {
 
 // Discord login
 function discordLogin() {
+  isLoggedIn = true;
+  alert('Du er nu logget ind med Discord');
   const btn = document.querySelector('.discord-btn');
   btn.innerText = 'Logget ind';
   btn.style.pointerEvents = 'none';
   btn.style.opacity = '0.7';
-  alert('Du er nu logget ind med Discord');
 }
 
 // Regel-søgning
@@ -856,7 +853,7 @@ if (ruleSearch) {
   });
 }
 
-// Navigation klik
+// ✅ NY: Tilføj klik-events til navigationen
 document.querySelectorAll('.nav-center a').forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
