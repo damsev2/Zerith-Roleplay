@@ -801,10 +801,27 @@ section#home.active {
 let isLoggedIn = false;
     // 🟢 Gem og hent sidens aktuelle sektion
 // Når siden loader, tjek om vi har en gemt sektion
-const savedSection = localStorage.getItem('activeSection');
-if (savedSection) {
-  showPage(savedSection);
+// ✅ Vis og husk sektionen
+function showPage(id) {
+  document.querySelectorAll('section').forEach(section =>
+    section.classList.remove('active')
+  );
+  const target = document.getElementById(id);
+  if (target) target.classList.add('active');
+
+  // Gem den aktuelle sektion
+  localStorage.setItem('activeSection', id);
 }
+
+// Når siden loader, vis den sidst aktive sektion
+window.addEventListener('DOMContentLoaded', () => {
+  const savedSection = localStorage.getItem('activeSection');
+  if (savedSection && document.getElementById(savedSection)) {
+    showPage(savedSection);
+  } else {
+    showPage('home'); // fallback til startside
+  }
+});
 
 // Når brugeren skifter sektion, gem det i localStorage
 function showPage(id) {
