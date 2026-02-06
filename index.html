@@ -886,109 +886,6 @@ section#home.active {
     transform: translateX(-50%) translateY(6px);
   }
 }
-  .interactive-card {
-  background: linear-gradient(180deg, rgba(30,144,255,0.1), rgba(30,144,255,0.05));
-  border: 1px solid rgba(30,144,255,0.3);
-  border-radius: 16px;
-  padding: 20px;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.interactive-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(30,144,255,0.5);
-  border-color: rgba(30,144,255,0.6);
-}
-
-/* Badge med glow */
-.interactive-card .badge {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
-  background: rgba(30,144,255,0.2);
-  color: #1e90ff;
-  border: 1px solid rgba(30,144,255,0.35);
-  text-shadow: 0 0 5px rgba(30,144,255,0.5);
-}
-
-/* Form kort */
-.form-card {
-  background: linear-gradient(180deg, rgba(0,0,0,0.8), rgba(0,0,0,0.95));
-  border: 1px solid rgba(30,144,255,0.35);
-  padding: 30px;
-  border-radius: 18px;
-  box-shadow:
-    0 0 15px rgba(30,144,255,0.3),
-    0 15px 40px rgba(0,0,0,0.8);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.form-card textarea {
-  background: #0d2238;
-  color: var(--text);
-  border: 1px solid rgba(30,144,255,0.25);
-  border-radius: 8px;
-  padding: 12px;
-  font-size: 16px;
-  width: 100%;
-  min-height: 180px;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.form-card textarea:focus {
-  outline: none;
-  border-color: #1e90ff;
-  box-shadow: 0 0 15px rgba(30,144,255,0.5);
-}
-
-.form-card button {
-  margin-top: 20px;
-  padding: 14px 32px;
-  background: linear-gradient(90deg, #1e90ff, #3db0ff);
-  color: white;
-  font-weight: bold;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.form-card button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(30,144,255,0.5);
-}
-
-/* Grid spacing */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-}
-  function openApplication(type) {
-  showPage('applications');
-
-  const form = document.getElementById('applicationForm');
-  form.style.display = 'block';
-  document.getElementById('appTitle').innerText = type + ' ansøgning';
-  document.getElementById('appNotice').innerText = '';
-
-  // Tilføj midlertidig glow-animation på kortet
-  const cards = document.querySelectorAll('.interactive-card');
-  cards.forEach(card => card.classList.remove('new'));
-  setTimeout(() => {
-    cards.forEach(card => card.classList.add('new'));
-  }, 50);
-
-  setTimeout(() => {
-    form.scrollIntoView({ behavior: 'smooth' });
-  }, 100);
-}
   </style>
 </head>
 <body>
@@ -1547,29 +1444,79 @@ section#home.active {
   <p>Her kan du søge de forskellige stillinger på serveren.</p>
 
   <div class="grid">
-  <div class="grid" id="applicationGrid">
-  <div class="interactive-card">
-    <h3>Staff Ansøgning</h3>
-    <p>Vil du være staff og hjælpe med at holde styr på serveren?</p>
-    <span class="badge">High Priority</span>
-    <a class="btn" onclick="openApplication('Staff')">Ansøg nu</a>
+
+    <div class="card" onclick="openApplication('Whitelist')">
+      <span class="badge">Åben</span>
+      <h3> Whitelist</h3>
+      <p>Ansøg om adgang til serveren og bliv en del af community'et.</p>
+      <span class="btn">Ansøg nu →</span>
+    </div>
+
+    <div class="card" onclick="openApplication('Politi')">
+      <span class="badge">4 ledige stillinger</span>
+      <h3> Politi</h3>
+      <p>Vil du være med til at opretholde lov og orden i byen?</p>
+      <span class="btn">Ansøg nu →</span>
+    </div>
+
+    <div class="card" onclick="openApplication('EMS')">
+      <span class="badge">2 ledige stillinger</span>
+      <h3> EMS</h3>
+      <p>Bliv en del af medical-teamet og hjælp borgere i nød.</p>
+      <span class="btn">Ansøg nu →</span>
+    </div>
+
+    <div class="card" onclick="openApplication('Ejendomsmægler')">
+      <span class="badge">Åben</span>
+      <h3> Ejendomsmægler</h3>
+      <p>Hjælp borgere med at finde deres drømmebolig og sælg ejendomme.</p>
+      <span class="btn">Ansøg nu →</span>
+    </div>
+
+    <div class="card" onclick="openApplication('Firma')">
+      <span class="badge">Åben</span>
+      <h3> Firma</h3>
+      <p>Start eller overtag en virksomhed og skab RP.</p>
+      <span class="btn">Ansøg nu →</span>
+    </div>
+
+    <div class="card" onclick="openApplication('Bande')">
+      <span class="badge">Lukket</span>
+      <h3> Bande</h3>
+      <p>Skab dyb kriminel RP med konsekvenser.</p>
+      <span class="btn">Ansøg nu →</span>
+    </div>
+
+    <div class="card" onclick="openApplication('CK')">
+      <span class="badge">Ansøgning</span>
+      <h3> CK</h3>
+      <p>Ansøg om Character Kill og afslut din karakters historie korrekt.</p>
+      <span class="btn">Ansøg nu →</span>
+    </div>
+
+    <div class="card" onclick="openApplication('Unban')">
+      <span class="badge">Åben</span>
+      <h3> Unban</h3>
+      <p>Send en unban-ansøgning hvis du mener din ban bør revurderes.</p>
+      <span class="btn">Ansøg nu →</span>
+    </div>
+
+    <div class="card" onclick="openApplication('Staff')">
+      <span class="badge">Rekruttering</span>
+      <h3> Staff</h3>
+      <p>Vil du hjælpe med at drive serveren og skabe et godt community?</p>
+      <span class="btn">Ansøg nu →</span>
+    </div>
+
+    <div class="card" onclick="openApplication('CC')">
+      <span class="badge">Ansøgning</span>
+      <h3> CC</h3>
+      <p>Ansøg om Content Creator rolle og lav indhold fra serveren.</p>
+      <span class="btn">Ansøg nu →</span>
+    </div>
+
   </div>
 
-  <div class="interactive-card">
-    <h3>Moderator Ansøgning</h3>
-    <p>Hold chatten ren og støt communityet som moderator.</p>
-    <span class="badge">Medium Priority</span>
-    <a class="btn" onclick="openApplication('Moderator')">Ansøg nu</a>
-  </div>
-
-  <div class="interactive-card">
-    <h3>Builder Ansøgning</h3>
-    <p>Skab nye områder, byg strukturer og gør serveren fantastisk.</p>
-    <span class="badge">Low Priority</span>
-    <a class="btn" onclick="openApplication('Builder')">Ansøg nu</a>
-  </div>
-</div>
-    
   <div id="applicationForm" class="card" style="margin-top:40px; display:none;">
     <h3 id="appTitle"></h3>
     <textarea placeholder="Skriv din ansøgning her..."></textarea>
