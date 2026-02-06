@@ -811,15 +811,19 @@ section.active {
 </footer>
   <script>
 let isLoggedIn = false;
-    // ✅ Vis og husk sektionen
 function showPage(id) {
-  document.querySelectorAll('section').forEach(section =>
-    section.classList.remove('active')
-  );
-  const target = document.getElementById(id);
-  if (target) target.classList.add('active');
+  const sections = document.querySelectorAll('section');
 
-  // Gem den aktuelle sektion i localStorage
+  // Fjern active fra alle
+  sections.forEach(section => section.classList.remove('active'));
+
+  // Vent 10ms før vi tilføjer active for at sikre transition
+  setTimeout(() => {
+    const target = document.getElementById(id);
+    if (target) target.classList.add('active');
+  }, 10);
+
+  // Gem den aktuelle sektion
   localStorage.setItem('activeSection', id);
 }
 
