@@ -470,60 +470,90 @@ section#home.active {
 }
     /* === FORCE BLUE ACCENT (MATCH LOGO) === */
 #rules,
-#applications .card {
-  background: linear-gradient(180deg, rgba(30,144,255,0.05), rgba(30,144,255,0.1));
-  border: 1px solid rgba(30,144,255,0.25);
-  box-shadow: 0 0 0 1 rgba(30,144,255,0.08), 0 12px 30px rgba(0,0,0,0.6);
-  transition: all 0.25s ease;
+#applications {
+  --accent: #1e90ff;
 }
 
-#applications .card:hover {
-  border-color: rgba(30,144,255,0.55);
-  box-shadow: 0 0 0 1 rgba(30,144,255,0.25), 0 18px 40px rgba(0,0,0,0.8);
+/* Tekst / highlights */
+#rules h2,
+#rules h3,
+#rules strong,
+#applications h2,
+#applications h3,
+#applications strong {
+  color: var(--accent) !important;
 }
 
-#applications .card .btn {
-  background: linear-gradient(180deg, #1e90ff, #1e90ff);
-  color: white;
-  box-shadow: 0 6px 18px rgba(30,144,255,0.35);
+/* Borders / linjer / cards */
+#rules * ,
+#applications * {
+  border-color: rgba(30, 144, 255, 0.4) !important;
 }
 
-#applications .card h3 {
-  color: #1e90ff;
+/* Badges, labels, highlights */
+#rules .badge,
+#applications .badge,
+#rules .highlight,
+#applications .highlight {
+  background: rgba(30, 144, 255, 0.15) !important;
+  color: var(--accent) !important;
 }
 
+/* Buttons / links */
+#rules a,
+#applications a,
+#rules button,
+#applications button {
+  color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+    /* ===== FORCE BLUE FOR RULES & APPLICATIONS ===== */
+
+/* Regler bokse baggrund */
+#rules .rule {
+  background: linear-gradient(180deg, rgba(30,144,255,0.15), rgba(30,144,255,0.05)) !important;
+  border-color: rgba(30,144,255,0.25) !important;
+  box-shadow: 0 0 0 1px rgba(30,144,255,0.08), 0 12px 30px rgba(0,0,0,0.6) !important;
+}
+
+/* Regler hover */
+#rules .rule:hover {
+  border-color: rgba(30,144,255,0.55) !important;
+  box-shadow: 0 0 0 1 rgba(30,144,255,0.25), 0 16px 35px rgba(0,0,0,0.8) !important;
+}
+
+/* Badge farver */
+#rules .rule .badge,
 #applications .card .badge {
-  background: rgba(30,144,255,0.2);
-  color: #1e90ff;
-  border: 1px solid rgba(30,144,255,0.35);
+  background: rgba(30,144,255,0.2) !important;
+  color: #1e90ff !important;
+  border: 1px solid rgba(30,144,255,0.35) !important;
 }
 
-/* Lukket ansøgning */
-#applications .card.closed {
-  background: linear-gradient(180deg, rgba(128,128,128,0.05), rgba(128,128,128,0.1));
-  border-color: rgba(128,128,128,0.25);
-  box-shadow: 0 0 0 1 rgba(128,128,128,0.08), 0 12px 30px rgba(0,0,0,0.6);
+/* Ansøgningskort baggrund */
+#applications .card {
+  background: linear-gradient(180deg, rgba(30,144,255,0.05), rgba(30,144,255,0.1)) !important;
+  border: 1px solid rgba(30,144,255,0.25) !important;
+  box-shadow: 0 0 0 1px rgba(30,144,255,0.08), 0 12px 30px rgba(0,0,0,0.6) !important;
 }
 
-#applications .card.closed:hover {
-  border-color: rgba(128,128,128,0.4);
-  box-shadow: 0 0 0 1 rgba(128,128,128,0.15), 0 18px 40px rgba(0,0,0,0.7);
+/* Ansøgningskort hover */
+#applications .card:hover {
+  border-color: rgba(30,144,255,0.55) !important;
+  box-shadow: 0 0 0 1 rgba(30,144,255,0.25), 0 18px 40px rgba(0,0,0,0.8) !important;
 }
 
-#applications .card.closed .btn {
-  background: linear-gradient(180deg, #808080, #808080);
-  color: white;
-  box-shadow: 0 6px 18px rgba(128,128,128,0.35);
+/* Ansøg nu knap på kortene */
+#applications .card .btn {
+  background: linear-gradient(180deg, #1e90ff, #1e90ff) !important; /* kun blå */
+  color: white !important;
+  box-shadow: 0 6px 18px rgba(30,144,255,0.35) !important;
 }
 
-#applications .card.closed .badge {
-  background: rgba(128,128,128,0.2);
-  color: #808080;
-  border: 1px solid rgba(128,128,128,0.35);
-}
-
-#applications .card.closed h3 {
-  color: #808080;
+/* Strong-tags og overskrifter */
+#rules .rule strong,
+#applications .card h3 {
+  color: #1e90ff !important;
 }
 
 /* Tekst i rule content */
@@ -855,27 +885,6 @@ section#home.active {
   60% {
     transform: translateX(-50%) translateY(6px);
   }
-}
-  .card.closed {
-  background: linear-gradient(180deg, rgba(128,128,128,0.05), rgba(128,128,128,0.1)) !important;
-  border-color: rgba(128,128,128,0.25) !important;
-  box-shadow: 0 0 0 1 rgba(128,128,128,0.08), 0 12px 30px rgba(0,0,0,0.6) !important;
-}
-
-.card.closed .badge {
-  background: rgba(128,128,128,0.2) !important;
-  color: #808080 !important;
-  border: 1px solid rgba(128,128,128,0.35) !important;
-}
-
-.card.closed .btn {
-  background: linear-gradient(180deg, #808080, #808080) !important;
-  box-shadow: 0 6px 18px rgba(128,128,128,0.35) !important;
-  color: white !important;
-}
-
-.card.closed h3 {
-  color: #808080 !important;
 }
   </style>
 </head>
@@ -1444,14 +1453,14 @@ section#home.active {
     </div>
 
     <div class="card" onclick="openApplication('Politi')">
-      <span class="badge">Åben</span>
+      <span class="badge">4 ledige stillinger</span>
       <h3> Politi</h3>
       <p>Vil du være med til at opretholde lov og orden i byen?</p>
       <span class="btn">Ansøg nu →</span>
     </div>
 
     <div class="card" onclick="openApplication('EMS')">
-      <span class="badge">Åben</span>
+      <span class="badge">2 ledige stillinger</span>
       <h3> EMS</h3>
       <p>Bliv en del af medical-teamet og hjælp borgere i nød.</p>
       <span class="btn">Ansøg nu →</span>
@@ -1479,7 +1488,7 @@ section#home.active {
     </div>
 
     <div class="card" onclick="openApplication('CK')">
-      <span class="badge">Åben</span>
+      <span class="badge">Ansøgning</span>
       <h3> CK</h3>
       <p>Ansøg om Character Kill og afslut din karakters historie korrekt.</p>
       <span class="btn">Ansøg nu →</span>
@@ -1493,14 +1502,14 @@ section#home.active {
     </div>
 
     <div class="card" onclick="openApplication('Staff')">
-      <span class="badge">Åben</span>
+      <span class="badge">Rekruttering</span>
       <h3> Staff</h3>
       <p>Vil du hjælpe med at drive serveren og skabe et godt community?</p>
       <span class="btn">Ansøg nu →</span>
     </div>
 
     <div class="card" onclick="openApplication('CC')">
-      <span class="badge">Åben</span>
+      <span class="badge">Ansøgning</span>
       <h3> CC</h3>
       <p>Ansøg om Content Creator rolle og lav indhold fra serveren.</p>
       <span class="btn">Ansøg nu →</span>
@@ -1654,31 +1663,6 @@ document.querySelectorAll('.nav-left img, .nav-left span').forEach(el => {
     behavior: 'smooth'
   });
 }
-      document.querySelectorAll('#applications .card').forEach(card => {
-    const status = card.querySelector('.badge');
-    if (status && status.textContent.trim().toLowerCase() === 'lukket') {
-      card.classList.add('closed');
-    }
-  });
-function sortApplications() {
-  const container = document.getElementById("applications");
-  if (!container) return; // Hvis container ikke findes, gør intet
-  const apps = Array.from(container.children);
-
-  apps.sort((a, b) => {
-    const statusA = a.dataset.status || a.classList.contains("closed") ? "Lukket" : "Åben";
-    const statusB = b.dataset.status || b.classList.contains("closed") ? "Lukket" : "Åben";
-
-    if (statusA === "Lukket" && statusB !== "Lukket") return 1; // Lukket til bund
-    if (statusA !== "Lukket" && statusB === "Lukket") return -1; // Åben til top
-    return 0; // ellers behold rækkefølge
-  });
-
-  apps.forEach(app => container.appendChild(app));
-}
-
-// Kald funktionen ved indlæsning
-window.addEventListener("DOMContentLoaded", sortApplications);
 </script>
 </body>
 </html>
