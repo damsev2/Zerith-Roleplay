@@ -1662,12 +1662,7 @@ document.querySelectorAll('.nav-left img, .nav-left span').forEach(el => {
     behavior: 'smooth'
   });
 }
-document.querySelectorAll("#applications .card").forEach(card => {
-    const status = card.getAttribute("data-status"); // vi bruger data-status="Lukket"
-    if (status === "Lukket") {
-      card.classList.add("closed");
-    }
-  });
+
   const appList = document.getElementById("application-list");
   const cards = Array.from(appList.getElementsByClassName("card"));
 
