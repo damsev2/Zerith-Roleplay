@@ -497,7 +497,35 @@ section#home.active {
   color: #1e90ff;
   border: 1px solid rgba(30,144,255,0.35);
 }
-  
+
+/* Lukket ansøgning */
+#applications .card.closed {
+  background: linear-gradient(180deg, rgba(128,128,128,0.05), rgba(128,128,128,0.1));
+  border-color: rgba(128,128,128,0.25);
+  box-shadow: 0 0 0 1 rgba(128,128,128,0.08), 0 12px 30px rgba(0,0,0,0.6);
+}
+
+#applications .card.closed:hover {
+  border-color: rgba(128,128,128,0.4);
+  box-shadow: 0 0 0 1 rgba(128,128,128,0.15), 0 18px 40px rgba(0,0,0,0.7);
+}
+
+#applications .card.closed .btn {
+  background: linear-gradient(180deg, #808080, #808080);
+  color: white;
+  box-shadow: 0 6px 18px rgba(128,128,128,0.35);
+}
+
+#applications .card.closed .badge {
+  background: rgba(128,128,128,0.2);
+  color: #808080;
+  border: 1px solid rgba(128,128,128,0.35);
+}
+
+#applications .card.closed h3 {
+  color: #808080;
+}
+
 /* Tekst i rule content */
 #rules .rule-content,
 #applications .card p,
@@ -828,36 +856,26 @@ section#home.active {
     transform: translateX(-50%) translateY(6px);
   }
 }
-  
-.card.closed {
-  opacity: 0.7; 
-  pointer-events: none; 
-  cursor: default;
+  .card.closed {
+  background: linear-gradient(180deg, rgba(128,128,128,0.05), rgba(128,128,128,0.1)) !important;
+  border-color: rgba(128,128,128,0.25) !important;
+  box-shadow: 0 0 0 1 rgba(128,128,128,0.08), 0 12px 30px rgba(0,0,0,0.6) !important;
 }
 
-.card.closed .badge::after {
-  content: "Lukket";
-  display: block;
-  font-size: 12px;
-  color: #fff;
-  margin-top: 2px;
-  text-align: center;
+.card.closed .badge {
+  background: rgba(128,128,128,0.2) !important;
+  color: #808080 !important;
+  border: 1px solid rgba(128,128,128,0.35) !important;
 }
 
-#applications .card.closed .btn {
-  background: #aaa !important;
-  color: #666 !important;
-  box-shadow: none !important;
-  pointer-events: none;
+.card.closed .btn {
+  background: linear-gradient(180deg, #808080, #808080) !important;
+  box-shadow: 0 6px 18px rgba(128,128,128,0.35) !important;
+  color: white !important;
 }
 
-#applications .card-container {
-  display: flex;
-  flex-direction: column;
-}
-  
-#applications .card.closed {
-  order: 999; 
+.card.closed h3 {
+  color: #808080 !important;
 }
   </style>
 </head>
@@ -1413,85 +1431,83 @@ section#home.active {
 <section id="applications">
   <div class="application-panel">
   <div class="content-container">
-    
-<div class="card" data-status="Åben">
-  <h3>Ansøgning 1</h3>
-  <p>Whitelist Ansøgning</p>
-  <div class="badge">Åben</div>
-  <a class="btn">Ansøg nu</a>
-</div>
+  <h1>Ansøgninger</h1>
+  <p>Her kan du søge de forskellige stillinger på serveren.</p>
 
-<div class="card" data-status="Åben">
-  <h3>Politi Ansøgning</h3>
-  <p>Beskrivelse af ansøgning 2</p>
-  <div class="badge">Åben</div>
-  <a class="btn">Ansøg nu</a>
-</div>
+  <div class="grid">
 
-<div class="card" data-status="Åben">
-  <h3>Ems Ansøgning</h3>
-  <p>Beskrivelse af ansøgning 2</p>
-  <div class="badge">Åben</div>
-  <a class="btn">Ansøg nu</a>
-</div>
-    
-<div class="card" data-status="Åben">
-  <h3>Ejendomsmægler Ansøgning</h3>
-  <p>Beskrivelse af ansøgning 2</p>
-  <div class="badge">Åben</div>
-  <a class="btn">Ansøg nu</a>
-</div>
-    
-<div class="card" data-status="Åben">
-  <h3>Firma Ansøgning</h3>
-  <p>Beskrivelse af ansøgning 2</p>
-  <div class="badge">Åben</div>
-  <a class="btn">Ansøg nu</a>
-</div>
-    
-<div class="card" data-status="Åben">
-  <h3>Bande Ansøgning</h3>
-  <p>Beskrivelse af ansøgning 2</p>
-  <div class="badge">Åben</div>
-  <a class="btn">Ansøg nu</a>
-</div>
-    
-<div class="card" data-status="Åben">
-  <h3>CC Ansøgning</h3>
-  <p>Beskrivelse af ansøgning 2</p>
-  <div class="badge">Åben</div>
-  <a class="btn">Ansøg nu</a>
-</div>
-    
-<div class="card" data-status="Åben">
-  <h3>CC Ansøgning</h3>
-  <p>Beskrivelse af ansøgning 2</p>
-  <div class="badge">Åben</div>
-  <a class="btn">Ansøg nu</a>
-  </div>
-    
-<div class="card" data-status="Åben">
-  <h3>Unban Ansøgning</h3>
-  <p>Beskrivelse af ansøgning 2</p>
-  <div class="badge">Åben</div>
-  <a class="btn">Ansøg nu</a>
+    <div class="card" onclick="openApplication('Whitelist')">
+      <span class="badge">Åben</span>
+      <h3> Whitelist</h3>
+      <p>Ansøg om adgang til serveren og bliv en del af community'et.</p>
+      <span class="btn">Ansøg nu →</span>
+    </div>
+
+    <div class="card" onclick="openApplication('Politi')">
+      <span class="badge">Åben</span>
+      <h3> Politi</h3>
+      <p>Vil du være med til at opretholde lov og orden i byen?</p>
+      <span class="btn">Ansøg nu →</span>
+    </div>
+
+    <div class="card" onclick="openApplication('EMS')">
+      <span class="badge">Åben</span>
+      <h3> EMS</h3>
+      <p>Bliv en del af medical-teamet og hjælp borgere i nød.</p>
+      <span class="btn">Ansøg nu →</span>
+    </div>
+
+    <div class="card" onclick="openApplication('Ejendomsmægler')">
+      <span class="badge">Åben</span>
+      <h3> Ejendomsmægler</h3>
+      <p>Hjælp borgere med at finde deres drømmebolig og sælg ejendomme.</p>
+      <span class="btn">Ansøg nu →</span>
+    </div>
+
+    <div class="card" onclick="openApplication('Firma')">
+      <span class="badge">Åben</span>
+      <h3> Firma</h3>
+      <p>Start eller overtag en virksomhed og skab RP.</p>
+      <span class="btn">Ansøg nu →</span>
+    </div>
+
+    <div class="card" onclick="openApplication('Bande')">
+      <span class="badge">Lukket</span>
+      <h3> Bande</h3>
+      <p>Skab dyb kriminel RP med konsekvenser.</p>
+      <span class="btn">Ansøg nu →</span>
+    </div>
+
+    <div class="card" onclick="openApplication('CK')">
+      <span class="badge">Åben</span>
+      <h3> CK</h3>
+      <p>Ansøg om Character Kill og afslut din karakters historie korrekt.</p>
+      <span class="btn">Ansøg nu →</span>
+    </div>
+
+    <div class="card" onclick="openApplication('Unban')">
+      <span class="badge">Åben</span>
+      <h3> Unban</h3>
+      <p>Send en unban-ansøgning hvis du mener din ban bør revurderes.</p>
+      <span class="btn">Ansøg nu →</span>
+    </div>
+
+    <div class="card" onclick="openApplication('Staff')">
+      <span class="badge">Åben</span>
+      <h3> Staff</h3>
+      <p>Vil du hjælpe med at drive serveren og skabe et godt community?</p>
+      <span class="btn">Ansøg nu →</span>
+    </div>
+
+    <div class="card" onclick="openApplication('CC')">
+      <span class="badge">Åben</span>
+      <h3> CC</h3>
+      <p>Ansøg om Content Creator rolle og lav indhold fra serveren.</p>
+      <span class="btn">Ansøg nu →</span>
+    </div>
+
   </div>
 
-<div class="card" data-status="Åben">
-  <h3>Staff Ansøgning</h3>
-  <p>Beskrivelse af ansøgning 2</p>
-  <div class="badge">Åben</div>
-  <a class="btn">Ansøg nu</a>
-  </div>
-
-<div class="card" data-status="Åben">
-  <h3> Ansøgning</h3>
-  <p>Beskrivelse af ansøgning 2</p>
-  <div class="badge">Åben</div>
-  <a class="btn">Ansøg nu</a>
-  </div>
-</div>
-    
   <div id="applicationForm" class="card" style="margin-top:40px; display:none;">
     <h3 id="appTitle"></h3>
     <textarea placeholder="Skriv din ansøgning her..."></textarea>
@@ -1638,36 +1654,12 @@ document.querySelectorAll('.nav-left img, .nav-left span').forEach(el => {
     behavior: 'smooth'
   });
 }
-
-  const appList = document.getElementById("application-list");
-  const cards = Array.from(appList.getElementsByClassName("card"));
-
-  cards.forEach(card => {
-    const status = card.dataset.status;
-    if(status === "Lukket") {
-      // gør kort gråt
-      card.style.background = "linear-gradient(180deg, #55555555, #333333aa)";
-      card.style.borderColor = "#666";
-      card.style.boxShadow = "0 0 0 1px #444, 0 12px 30px rgba(0,0,0,0.6)";
-      card.querySelector(".badge").textContent = "Lukket";
-      card.querySelector(".badge").style.background = "#888";
-      card.querySelector(".badge").style.color = "#ddd";
-      // deaktiver knap
-      const btn = card.querySelector(".btn");
-      btn.style.pointerEvents = "none";
-      btn.style.opacity = "0.5";
+      document.querySelectorAll('#applications .card').forEach(card => {
+    const status = card.querySelector('.badge');
+    if (status && status.textContent.trim().toLowerCase() === 'lukket') {
+      card.classList.add('closed');
     }
   });
-
-  // Sorter kort: Lukket nederst
-  cards.sort((a, b) => {
-    if(a.dataset.status === "Lukket" && b.dataset.status !== "Lukket") return 1;
-    if(a.dataset.status !== "Lukket" && b.dataset.status === "Lukket") return -1;
-    return 0;
-  });
-
-  // Fjern alle kort fra DOM og tilføj igen i ny rækkefølge
-  cards.forEach(card => appList.appendChild(card));
 </script>
 </body>
 </html>
