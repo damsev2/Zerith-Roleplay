@@ -897,6 +897,12 @@ if (heroRulesBtn) {
     showPage(target);
   });
 }
+    // Klik på logo eller tekst i venstre hjørne sender til startside
+document.querySelectorAll('.nav-left img, .nav-left span').forEach(el => {
+  el.addEventListener('click', function() {
+    showPage('home');
+  });
+});
 </script>
 </body>
 </html>
