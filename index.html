@@ -319,24 +319,23 @@ section#home.active {
     );
 }
 
-/* CONTENT WRAPPER */
 .home-inner {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding-left: 0;    /* HELT TIL VENSTRE */
+  padding-right: 60px;
   width: 100%;
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
-/* LEFT SIDE */
 .hero-left {
-  max-width: 600px;
-  margin-top: -60px;   /* RYKKER OP */
+  max-width: 620px;
+  margin-top: -160px;
+  margin-left: -40px; /* MARKANT VENSTRE */
 }
-
 .hero-left h1 {
   font-size: 80px;      /* STØRRE */
   line-height: 1.1;
