@@ -497,35 +497,7 @@ section#home.active {
   color: #1e90ff;
   border: 1px solid rgba(30,144,255,0.35);
 }
-
-/* Lukket ansøgning */
-#applications .card.closed {
-  background: linear-gradient(180deg, rgba(128,128,128,0.05), rgba(128,128,128,0.1));
-  border-color: rgba(128,128,128,0.25);
-  box-shadow: 0 0 0 1 rgba(128,128,128,0.08), 0 12px 30px rgba(0,0,0,0.6);
-}
-
-#applications .card.closed:hover {
-  border-color: rgba(128,128,128,0.4);
-  box-shadow: 0 0 0 1 rgba(128,128,128,0.15), 0 18px 40px rgba(0,0,0,0.7);
-}
-
-#applications .card.closed .btn {
-  background: linear-gradient(180deg, #808080, #808080);
-  color: white;
-  box-shadow: 0 6px 18px rgba(128,128,128,0.35);
-}
-
-#applications .card.closed .badge {
-  background: rgba(128,128,128,0.2);
-  color: #808080;
-  border: 1px solid rgba(128,128,128,0.35);
-}
-
-#applications .card.closed h3 {
-  color: #808080;
-}
-
+  
 /* Tekst i rule content */
 #rules .rule-content,
 #applications .card p,
@@ -876,6 +848,33 @@ section#home.active {
 
 .card.closed h3 {
   color: #808080 !important;
+}
+  #applications .card.closed {
+  background: linear-gradient(180deg, rgba(128,128,128,0.05), rgba(128,128,128,0.1));
+  border-color: rgba(128,128,128,0.25);
+  box-shadow: 0 0 0 1 rgba(128,128,128,0.08), 0 12px 30px rgba(0,0,0,0.6);
+  order: 999; /* Skubber kortet til bunden */
+}
+
+#applications .card.closed:hover {
+  border-color: rgba(128,128,128,0.4);
+  box-shadow: 0 0 0 1 rgba(128,128,128,0.15), 0 18px 40px rgba(0,0,0,0.7);
+}
+
+#applications .card.closed .btn {
+  background: linear-gradient(180deg, #808080, #808080);
+  color: white;
+  box-shadow: 0 6px 18px rgba(128,128,128,0.35);
+}
+
+#applications .card.closed .badge {
+  background: rgba(128,128,128,0.2);
+  color: #808080;
+  border: 1px solid rgba(128,128,128,0.35);
+}
+
+#applications .card.closed h3 {
+  color: #808080;
 }
   </style>
 </head>
@@ -1654,12 +1653,12 @@ document.querySelectorAll('.nav-left img, .nav-left span').forEach(el => {
     behavior: 'smooth'
   });
 }
-      document.querySelectorAll('#applications .card').forEach(card => {
-    const status = card.querySelector('.badge');
-    if (status && status.textContent.trim().toLowerCase() === 'lukket') {
-      card.classList.add('closed');
-    }
-  });
+document.querySelectorAll('#applications .card').forEach(card => {
+  const status = card.querySelector('.badge')?.textContent?.trim();
+  if (status && status.toLowerCase() === 'lukket') {
+    card.classList.add('closed');
+  }
+});
 </script>
 </body>
 </html>
