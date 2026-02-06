@@ -859,6 +859,15 @@ document.querySelectorAll('.nav-center a').forEach(link => {
     showPage(target);
   });
 });
+    // Hero "Se regler" knap
+const heroRulesBtn = document.querySelector('.hero-buttons a[data-target="rules"]');
+if (heroRulesBtn) {
+  heroRulesBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = this.dataset.target;
+    showPage(target);
+  });
+}
 </script>
 </body>
 </html>
