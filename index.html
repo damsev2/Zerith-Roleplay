@@ -470,6 +470,14 @@ section#home.active {
 .nav-left span {
   cursor: pointer; /* Gør musen til klikbar hånd */
 }
+section {
+  opacity: 0;
+  transition: opacity 1s ease; /* fade på 1 sekund */
+}
+
+section.active {
+  opacity: 1;
+}
   </style>
 </head>
 <body>
