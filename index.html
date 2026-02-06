@@ -886,6 +886,27 @@ section#home.active {
     transform: translateX(-50%) translateY(6px);
   }
 }
+  .card.closed {
+  background: linear-gradient(180deg, rgba(128,128,128,0.05), rgba(128,128,128,0.1)) !important;
+  border-color: rgba(128,128,128,0.25) !important;
+  box-shadow: 0 0 0 1 rgba(128,128,128,0.08), 0 12px 30px rgba(0,0,0,0.6) !important;
+}
+
+.card.closed .badge {
+  background: rgba(128,128,128,0.2) !important;
+  color: #808080 !important;
+  border: 1px solid rgba(128,128,128,0.35) !important;
+}
+
+.card.closed .btn {
+  background: linear-gradient(180deg, #808080, #808080) !important;
+  box-shadow: 0 6px 18px rgba(128,128,128,0.35) !important;
+  color: white !important;
+}
+
+.card.closed h3 {
+  color: #808080 !important;
+}
   </style>
 </head>
 <body>
@@ -1663,6 +1684,12 @@ document.querySelectorAll('.nav-left img, .nav-left span').forEach(el => {
     behavior: 'smooth'
   });
 }
+      document.querySelectorAll('#applications .card').forEach(card => {
+    const status = card.querySelector('.badge');
+    if (status && status.textContent.trim().toLowerCase() === 'lukket') {
+      card.classList.add('closed');
+    }
+  });
 </script>
 </body>
 </html>
