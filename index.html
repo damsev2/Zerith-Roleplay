@@ -77,18 +77,17 @@
       gap: 25px;
     }
 
-.card {
-  position: relative;
-  background: linear-gradient(180deg, rgba(20,40,30,0.55), rgba(10,20,15,0.75));
-  border: 1px solid rgba(80, 200, 140, 0.25);
-  border-radius: 10px;   /* mindre hjørner */
-  padding: 15px;         /* mindre højde */
-  max-width: 300px;      /* mindre bredde, valgfrit */
-  box-shadow: 0 0 0 1px rgba(80,200,140,0.08), 0 12px 30px rgba(0,0,0,0.6);
-  backdrop-filter: blur(6px);
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-  cursor: pointer;
-}
+    .card {
+      position: relative;
+      background: linear-gradient(180deg, rgba(20,40,30,0.55), rgba(10,20,15,0.75));
+      border: 1px solid rgba(80, 200, 140, 0.25);
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 0 0 1px rgba(80,200,140,0.08), 0 12px 30px rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      cursor: pointer;
+    }
 
     .card:hover {
       transform: translateY(-4px);
@@ -492,26 +491,6 @@ section.active {
 section.active {
   opacity: 1;
   pointer-events: auto; /* aktive sektioner kan klikkes */
-}
-    /* Footer altid i bunden */
-body, html {
-  height: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-body > section, body > nav {
-  flex-shrink: 0;
-}
-
-footer {
-  margin-top: auto; /* skubber footeren til bunden */
-  background: #111;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding: 30px;
-  text-align: center;
-  color: var(--muted);
 }
   </style>
 </head>
