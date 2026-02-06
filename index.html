@@ -1660,6 +1660,25 @@ document.querySelectorAll('.nav-left img, .nav-left span').forEach(el => {
       card.classList.add('closed');
     }
   });
+function sortApplications() {
+  const container = document.getElementById("applications");
+  if (!container) return; // Hvis container ikke findes, gør intet
+  const apps = Array.from(container.children);
+
+  apps.sort((a, b) => {
+    const statusA = a.dataset.status || a.classList.contains("closed") ? "Lukket" : "Åben";
+    const statusB = b.dataset.status || b.classList.contains("closed") ? "Lukket" : "Åben";
+
+    if (statusA === "Lukket" && statusB !== "Lukket") return 1; // Lukket til bund
+    if (statusA !== "Lukket" && statusB === "Lukket") return -1; // Åben til top
+    return 0; // ellers behold rækkefølge
+  });
+
+  apps.forEach(app => container.appendChild(app));
+}
+
+// Kald funktionen ved indlæsning
+window.addEventListener("DOMContentLoaded", sortApplications);
 </script>
 </body>
 </html>
