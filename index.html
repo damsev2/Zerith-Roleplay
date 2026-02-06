@@ -481,7 +481,9 @@ section.active {
   </style>
 </head>
 <body>
-
+  
+<div id="loader">Loading...</div>
+  
 <nav class="top-nav">
   <div class="nav-left">
     <img src="logo.png" alt="Zerith Roleplay Logo">
@@ -919,37 +921,33 @@ document.querySelectorAll('.nav-left img, .nav-left span').forEach(el => {
     showPage('home');
   });
 });
-     /* Loader overlay */
-  #loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #1e90ff;
-    font-size: 2em;
-    z-index: 2000;
-    opacity: 1;
-    transition: opacity 0.5s ease;
-  }
-  #loader.hidden {
-    opacity: 0;
-    pointer-events: none;
-  }
-</style>
-
-<div id="loader">Loading...</div>
-
-  window.addEventListener('DOMContentLoaded', () => {
-    // Vent 3 sekunder før vi fjerner loaderen
-    setTimeout(() => {
-      document.getElementById('loader').classList.add('hidden');
-    }, 3000); // 3000ms = 3 sekunder
-  });
+    /* Loader overlay */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1e90ff;
+  font-size: 2em;
+  z-index: 2000;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+#loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+    // Loader fade
+window.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hidden');
+  }, 3000); // loader i 3 sekunder
+});
 </script>
 </body>
 </html>
