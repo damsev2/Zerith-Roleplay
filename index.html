@@ -506,6 +506,26 @@ section.active {
   opacity: 1;
   pointer-events: auto; /* aktive sektioner kan klikkes */
 }
+    /* Footer altid i bunden */
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body > section, body > nav {
+  flex-shrink: 0;
+}
+
+footer {
+  margin-top: auto; /* skubber footeren til bunden */
+  background: #111;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 30px;
+  text-align: center;
+  color: var(--muted);
+}
   </style>
 </head>
 <body>
