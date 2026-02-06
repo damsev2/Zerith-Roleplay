@@ -470,90 +470,60 @@ section#home.active {
 }
     /* === FORCE BLUE ACCENT (MATCH LOGO) === */
 #rules,
-#applications {
-  --accent: #1e90ff;
-}
-
-/* Tekst / highlights */
-#rules h2,
-#rules h3,
-#rules strong,
-#applications h2,
-#applications h3,
-#applications strong {
-  color: var(--accent) !important;
-}
-
-/* Borders / linjer / cards */
-#rules * ,
-#applications * {
-  border-color: rgba(30, 144, 255, 0.4) !important;
-}
-
-/* Badges, labels, highlights */
-#rules .badge,
-#applications .badge,
-#rules .highlight,
-#applications .highlight {
-  background: rgba(30, 144, 255, 0.15) !important;
-  color: var(--accent) !important;
-}
-
-/* Buttons / links */
-#rules a,
-#applications a,
-#rules button,
-#applications button {
-  color: var(--accent) !important;
-  border-color: var(--accent) !important;
-}
-    /* ===== FORCE BLUE FOR RULES & APPLICATIONS ===== */
-
-/* Regler bokse baggrund */
-#rules .rule {
-  background: linear-gradient(180deg, rgba(30,144,255,0.15), rgba(30,144,255,0.05)) !important;
-  border-color: rgba(30,144,255,0.25) !important;
-  box-shadow: 0 0 0 1px rgba(30,144,255,0.08), 0 12px 30px rgba(0,0,0,0.6) !important;
-}
-
-/* Regler hover */
-#rules .rule:hover {
-  border-color: rgba(30,144,255,0.55) !important;
-  box-shadow: 0 0 0 1 rgba(30,144,255,0.25), 0 16px 35px rgba(0,0,0,0.8) !important;
-}
-
-/* Badge farver */
-#rules .rule .badge,
-#applications .card .badge {
-  background: rgba(30,144,255,0.2) !important;
-  color: #1e90ff !important;
-  border: 1px solid rgba(30,144,255,0.35) !important;
-}
-
-/* Ansøgningskort baggrund */
 #applications .card {
-  background: linear-gradient(180deg, rgba(30,144,255,0.05), rgba(30,144,255,0.1)) !important;
-  border: 1px solid rgba(30,144,255,0.25) !important;
-  box-shadow: 0 0 0 1px rgba(30,144,255,0.08), 0 12px 30px rgba(0,0,0,0.6) !important;
+  background: linear-gradient(180deg, rgba(30,144,255,0.05), rgba(30,144,255,0.1));
+  border: 1px solid rgba(30,144,255,0.25);
+  box-shadow: 0 0 0 1 rgba(30,144,255,0.08), 0 12px 30px rgba(0,0,0,0.6);
+  transition: all 0.25s ease;
 }
 
-/* Ansøgningskort hover */
 #applications .card:hover {
-  border-color: rgba(30,144,255,0.55) !important;
-  box-shadow: 0 0 0 1 rgba(30,144,255,0.25), 0 18px 40px rgba(0,0,0,0.8) !important;
+  border-color: rgba(30,144,255,0.55);
+  box-shadow: 0 0 0 1 rgba(30,144,255,0.25), 0 18px 40px rgba(0,0,0,0.8);
 }
 
-/* Ansøg nu knap på kortene */
 #applications .card .btn {
-  background: linear-gradient(180deg, #1e90ff, #1e90ff) !important; /* kun blå */
-  color: white !important;
-  box-shadow: 0 6px 18px rgba(30,144,255,0.35) !important;
+  background: linear-gradient(180deg, #1e90ff, #1e90ff);
+  color: white;
+  box-shadow: 0 6px 18px rgba(30,144,255,0.35);
 }
 
-/* Strong-tags og overskrifter */
-#rules .rule strong,
 #applications .card h3 {
-  color: #1e90ff !important;
+  color: #1e90ff;
+}
+
+#applications .card .badge {
+  background: rgba(30,144,255,0.2);
+  color: #1e90ff;
+  border: 1px solid rgba(30,144,255,0.35);
+}
+
+/* Lukket ansøgning */
+#applications .card.closed {
+  background: linear-gradient(180deg, rgba(128,128,128,0.05), rgba(128,128,128,0.1));
+  border-color: rgba(128,128,128,0.25);
+  box-shadow: 0 0 0 1 rgba(128,128,128,0.08), 0 12px 30px rgba(0,0,0,0.6);
+}
+
+#applications .card.closed:hover {
+  border-color: rgba(128,128,128,0.4);
+  box-shadow: 0 0 0 1 rgba(128,128,128,0.15), 0 18px 40px rgba(0,0,0,0.7);
+}
+
+#applications .card.closed .btn {
+  background: linear-gradient(180deg, #808080, #808080);
+  color: white;
+  box-shadow: 0 6px 18px rgba(128,128,128,0.35);
+}
+
+#applications .card.closed .badge {
+  background: rgba(128,128,128,0.2);
+  color: #808080;
+  border: 1px solid rgba(128,128,128,0.35);
+}
+
+#applications .card.closed h3 {
+  color: #808080;
 }
 
 /* Tekst i rule content */
