@@ -924,6 +924,12 @@ section#home.active {
   color: #ccc !important;
   box-shadow: none !important;
 }
+  .card.closed .badge {
+  background: rgba(160, 160, 160, 0.25) !important;
+  color: #e0e0e0 !important;
+  border: 1px solid rgba(180, 180, 180, 0.5) !important;
+  box-shadow: none !important;
+}
   </style>
 </head>
 <body>
@@ -1490,15 +1496,15 @@ section#home.active {
       <span class="btn">Ansøg nu →</span>
     </div>
 
-    <div class="card closed"
-      <span class="badge">Lukket</span>
+    <div class="card closed" onclick="openApplication('Politi')">
+      <span class="badge">Åben</span>
       <h3> Politi</h3>
       <p>Vil du være med til at opretholde lov og orden i byen?</p>
       <span class="btn">Ansøg nu →</span>
     </div>
 
     <div class="card" onclick="openApplication('EMS')">
-      <span class="badge">Åben</span>
+      <span class="badge">Lukket</span>
       <h3> EMS</h3>
       <p>Bliv en del af medical-teamet og hjælp borgere i nød.</p>
       <span class="btn">Ansøg nu →</span>
