@@ -484,10 +484,8 @@ section#home.active {
   color: var(--accent) !important;
 }
 
-/* Borders / linjer / cards */
-#rules * ,
-#applications * {
-  border-color: rgba(30, 144, 255, 0.4) !important;
+#applications .card:not(.closed) * {
+  border-color: rgba(30, 144, 255, 0.4);
 }
 
 /* Badges, labels, highlights */
@@ -1546,15 +1544,15 @@ section#home.active {
       <span class="btn">Ansøg nu →</span>
     </div>
 
-    <div class="card closed"
-      <span class="status closed">Lukket</span>
+    <div class="card closed">
+      <span class="badge">Lukket</span>
       <h3> EMS</h3>
       <p>Bliv en del af medical-teamet og hjælp borgere i nød.</p>
       <span class="btn">Ansøg nu →</span>
     </div>
 
-    <div class="card"
-      <span class="status open">Åben</span>
+    <div class="card closed" onclick="openApplication('Ejendomsmægler')">
+      <span class="badge">Åben</span>>
       <h3> Ejendomsmægler</h3>
       <p>Hjælp borgere med at finde deres drømmebolig og sælg ejendomme.</p>
       <span class="btn">Ansøg nu →</span>
