@@ -930,6 +930,49 @@ section#home.active {
   border: 1px solid rgba(180, 180, 180, 0.5) !important;
   box-shadow: none !important;
 }
+  .card.closed {
+  background: linear-gradient(
+    180deg,
+    rgba(120,120,120,0.08),
+    rgba(60,60,60,0.18)
+  ) !important;
+
+  border-color: rgba(180,180,180,0.35) !important;
+
+  box-shadow:
+    0 0 0 1px rgba(180,180,180,0.15),
+    0 12px 30px rgba(0,0,0,0.7) !important;
+
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+/* ingen hover-effekt */
+.card.closed:hover {
+  transform: none !important;
+}
+
+/* knap bliver også grå */
+.card.closed .btn {
+  background: rgba(140,140,140,0.3) !important;
+  color: #ddd !important;
+  box-shadow: none !important;
+}
+
+/* status badge */
+.card.closed .status.closed {
+  background: rgba(150,150,150,0.25) !important;
+  color: #eee !important;
+  border: 1px solid rgba(180,180,180,0.45) !important;
+  box-shadow: none !important;
+}
+  function openApplication(type) {
+  const card = event.currentTarget;
+  if (card.classList.contains('closed')) return;
+
+  showPage('applications');
+  // resten af din kode
+}
   </style>
 </head>
 <body>
@@ -1503,15 +1546,15 @@ section#home.active {
       <span class="btn">Ansøg nu →</span>
     </div>
 
-    <div class="card" onclick="openApplication('EMS')">
-      <span class="badge">Lukket</span>
+    <div class="card closed"
+      <span class="status closed">Lukket</span>
       <h3> EMS</h3>
       <p>Bliv en del af medical-teamet og hjælp borgere i nød.</p>
       <span class="btn">Ansøg nu →</span>
     </div>
 
-    <div class="card" onclick="openApplication('Ejendomsmægler')">
-      <span class="badge">Åben</span>
+    <div class="card"
+      <span class="status open">Åben</span>
       <h3> Ejendomsmægler</h3>
       <p>Hjælp borgere med at finde deres drømmebolig og sælg ejendomme.</p>
       <span class="btn">Ansøg nu →</span>
