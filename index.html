@@ -886,6 +886,44 @@ section#home.active {
     transform: translateX(-50%) translateY(6px);
   }
 }
+  .card.closed {
+  background: linear-gradient(
+    180deg,
+    rgba(120,120,120,0.08),
+    rgba(60,60,60,0.15)
+  ) !important;
+
+  border-color: rgba(180,180,180,0.35) !important;
+
+  box-shadow:
+    0 0 0 1px rgba(180,180,180,0.15),
+    0 12px 30px rgba(0,0,0,0.7) !important;
+
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+/* Hover = ingen blå effekt */
+.card.closed:hover {
+  transform: none !important;
+  box-shadow:
+    0 0 0 1px rgba(180,180,180,0.25),
+    0 12px 30px rgba(0,0,0,0.7) !important;
+}
+
+/* Badge bliver grå */
+.card.closed .badge {
+  background: rgba(160,160,160,0.2) !important;
+  color: #cfcfcf !important;
+  border-color: rgba(180,180,180,0.35) !important;
+}
+
+/* Knappen bliver disabled-look */
+.card.closed .btn {
+  background: rgba(120,120,120,0.3) !important;
+  color: #ccc !important;
+  box-shadow: none !important;
+}
   </style>
 </head>
 <body>
@@ -1583,6 +1621,11 @@ function toggleRule(el) {
 
 // Ansøgningsformular
 function openApplication(type) {
+  const card = event.currentTarget;
+
+  // ⛔ Hvis ansøgningen er lukket – gør intet
+  if (card.classList.contains('closed')) return;
+
   showPage('applications');
 
   const form = document.getElementById('applicationForm');
