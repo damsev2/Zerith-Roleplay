@@ -880,6 +880,12 @@ section#home.active {
     transform: translateX(-50%) translateY(6px);
   }
 }
+  .card.closed {
+  background: linear-gradient(
+    180deg,
+    rgba(120,120,120,0.08),
+    rgba(60,60,60,0.15)
+  ) !important;
 
   border-color: rgba(180,180,180,0.35) !important;
 
@@ -961,6 +967,12 @@ section#home.active {
   showPage('applications');
   // resten af din kode
 }
+    .card.closed {
+  background: linear-gradient(
+    180deg,
+    rgba(120,120,120,0.08),
+    rgba(60,60,60,0.18)
+  ) !important;
 
   border-color: rgba(180,180,180,0.35) !important;
 
@@ -987,6 +999,16 @@ section#home.active {
   color: #ddd !important;
   box-shadow: none !important;
 }
+    document.querySelectorAll('.card').forEach(card => {
+  const badge = card.querySelector('.badge');
+  if (!badge) return;
+
+  if (badge.innerText.trim() === 'Lukket') {
+    card.classList.add('closed');
+  } else {
+    card.classList.remove('closed');
+  }
+});
   </style>
 </head>
 <body>
@@ -1682,6 +1704,26 @@ function toggleRule(el) {
     content.style.display === 'block' ? 'none' : 'block';
 }
 
+// Ansøgningsformular
+function openApplication(type) {
+  const card = event.currentTarget;
+
+  // ⛔ Hvis ansøgningen er lukket – gør intet
+  if (card.classList.contains('closed')) return;
+
+  showPage('applications');
+
+  const form = document.getElementById('applicationForm');
+  form.style.display = 'block';
+  document.getElementById('appTitle').innerText = type + ' ansøgning';
+  document.getElementById('appNotice').innerText = '';
+
+  setTimeout(() => {
+    form.scrollIntoView({ behavior: 'smooth' });
+  }, 100);
+}
+
+// Ansøgning send
 function submitApplication() {
   document.getElementById('appNotice').innerText = 'Du har nu ansøgt.';
 }
@@ -1749,57 +1791,6 @@ document.querySelectorAll('.nav-left img, .nav-left span').forEach(el => {
     behavior: 'smooth'
   });
 }
-    <script>
-  // Skift sektioner
-  function showPage(pageId) {
-    document.querySelectorAll('section').forEach(sec => {
-      sec.classList.remove('active');
-    });
-    document.getElementById(pageId).classList.add('active');
-  }
-
-  // Navigation klik
-  document.querySelectorAll('nav a[data-target]').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const target = link.getAttribute('data-target');
-      showPage(target);
-    });
-  });
-
-  // Scroll ned-knap
-  function scrollHomeDown() {
-    const rulesSection = document.getElementById('rules');
-    rulesSection.scrollIntoView({ behavior: 'smooth' });
-  }
-
-  // Toggle regler
-  function toggleRule(el) {
-    const content = el.querySelector('.rule-content');
-    if (!content) return;
-    content.style.display = content.style.display === 'block' ? 'none' : 'block';
-  }
-
-  // Lukket/åben kort
-  document.querySelectorAll('.card').forEach(card => {
-    const badge = card.querySelector('.badge');
-    if (!badge) return;
-
-    if (badge.innerText.trim() === 'Lukket') {
-      card.classList.add('closed');
-    } else {
-      card.classList.remove('closed');
-    }
-  });
-
-  // Ansøgningskort klik
-  function openApplication(card) {
-    if (card.classList.contains('closed')) return;
-    showPage('applications');
-    // evt. ekstra kode her
-  }
 </script>
-</script>
-  
 </body>
 </html>
