@@ -967,6 +967,48 @@ section#home.active {
   showPage('applications');
   // resten af din kode
 }
+    .card.closed {
+  background: linear-gradient(
+    180deg,
+    rgba(120,120,120,0.08),
+    rgba(60,60,60,0.18)
+  ) !important;
+
+  border-color: rgba(180,180,180,0.35) !important;
+
+  box-shadow:
+    0 0 0 1px rgba(180,180,180,0.15),
+    0 12px 30px rgba(0,0,0,0.7) !important;
+
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.card.closed:hover {
+  transform: none !important;
+}
+
+.card.closed .badge {
+  background: rgba(160,160,160,0.25) !important;
+  color: #e0e0e0 !important;
+  border: 1px solid rgba(180,180,180,0.45) !important;
+}
+
+.card.closed .btn {
+  background: rgba(140,140,140,0.3) !important;
+  color: #ddd !important;
+  box-shadow: none !important;
+}
+    document.querySelectorAll('.card').forEach(card => {
+  const badge = card.querySelector('.badge');
+  if (!badge) return;
+
+  if (badge.innerText.trim() === 'Lukket') {
+    card.classList.add('closed');
+  } else {
+    card.classList.remove('closed');
+  }
+});
   </style>
 </head>
 <body>
@@ -1526,8 +1568,8 @@ section#home.active {
 
   <div class="grid">
 
-    <div class="card" onclick="openApplication('Whitelist')">
-      <span class="badge">Åben</span>
+    <div class="card closed"
+      <span class="badge">lukket</span>
       <h3> Whitelist</h3>
       <p>Ansøg om adgang til serveren og bliv en del af community'et.</p>
       <span class="btn">Ansøg nu →</span>
